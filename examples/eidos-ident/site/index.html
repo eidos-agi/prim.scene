@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="player">
   <link rel="stylesheet" href="./brand.css">
   <link rel="stylesheet" href="./volta.css">
-  <link rel="stylesheet" href="./video.css">
+  <link rel="stylesheet" href="./video.css?v=3">
 </head>
 <body class="reel">
   <header class="rail" id="rail">
@@ -65,6 +65,10 @@
         <div class="stat"><span class="n">10×</span><span class="l">faster sequential retakes of the 16s ident</span></div>
         <div class="stat"><span class="n">$0.0005</span><span class="l">to recapture the same scene. A Grok replan is about a dollar.</span></div>
       </div>
+      <div class="cta-row reveal d3">
+        <a class="btn btn-primary" href="#v6">Play ident-v6</a>
+        <a class="btn btn-ghost" href="#s1">Scenes</a>
+      </div>
     </div>
   </section>
 
@@ -74,8 +78,8 @@
       <h2 class="reveal d1">Figure-skater into the mark<span class="stop">.</span></h2>
       <p class="lede reveal d2">Sixteen seconds. ω grows as radius falls. No letters.</p>
       <div class="stage reveal d3">
-        <video id="ident" playsinline webkit-playsinline controls preload="metadata" poster="./poster-v6.jpg" width="1920" height="1080">
-          <source src="./ident-v6.mp4" type="video/mp4">
+        <video id="ident" playsinline webkit-playsinline preload="metadata" poster="./poster-v6.jpg?v=2" width="1920" height="1080">
+          <source src="./ident-v6.mp4?v=2" type="video/mp4">
         </video>
         <button class="play" id="go" type="button" aria-label="Play ident v6">
           <span>Play</span>
@@ -147,23 +151,25 @@
     </div>
   </footer>
 
-  <script src="./scroll.js"></script>
+  <script src="./scroll.js?v=2"></script>
   <script>
     (function () {
       var v = document.getElementById("ident");
       var go = document.getElementById("go");
       if (!v || !go) return;
-      function hide() { go.hidden = true; }
-      function show() { if (v.paused) go.hidden = false; }
+      var started = false;
+      function hide() {
+        started = true;
+        go.hidden = true;
+        v.controls = true;
+      }
       go.addEventListener("click", function () {
         v.muted = false;
         var p = v.play();
-        if (p && p.then) p.then(hide).catch(function () { v.controls = true; });
+        if (p && p.then) p.then(hide).catch(function () {});
         else hide();
       });
       v.addEventListener("play", hide);
-      v.addEventListener("pause", show);
-      v.addEventListener("ended", show);
     })();
   </script>
 </body>

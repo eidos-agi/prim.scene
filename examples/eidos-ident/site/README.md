@@ -4,7 +4,7 @@ Public player for **ident-v6** plus mute scene stills. Hostkey + Caddy, same pat
 
 Packs: OPF `examples/eidos-ident/opf`, OBF `prim.obf/examples/eidos-ident`, docket `notes/dockets/20260822-video-eidosagi`.
 
-Source mp4 is not in git (`site/*.mp4`). Encode a web copy with `+faststart` before rsync.
+Source mp4 is not in git (`site/*.mp4`). Encode a web copy with `+faststart` before rsync. Poster, stills, fonts, and CSS ship in this directory — rsync the whole tree except README.
 
 ## Deploy
 

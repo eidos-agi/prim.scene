@@ -23699,20 +23699,7 @@
     "shell_t1": 12.0,
     "cites": "gather onto contracting rotating shell; mid absorbs at t=12"
   },
-  "type": [
-    {
-      "id": "word",
-      "in": 12.2,
-      "full": 13.05,
-      "text": "Eidos AGI"
-    },
-    {
-      "id": "lede",
-      "in": 14.5,
-      "full": 15.3,
-      "text": "Software for agents. Governance for reality."
-    }
-  ],
+  "type": [],
   "audio": {
     "file": "audio/bed.m4a",
     "cites": "track 1 last 16s, 1s fade in, 2.2s fade out on the song's decay"

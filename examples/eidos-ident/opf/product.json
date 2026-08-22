@@ -7,7 +7,7 @@
       "id": "opf:eidos-video:product",
       "type": "product",
       "title": "video.eidosagi.com",
-      "status": "building",
+      "status": "operating",
       "description": "Public ident and anthem player on Hostkey. Volta-style chapter scroll.",
       "provenance": {"by": "agent:grok", "method": "Daniel asked to ship ident-v6 plus scenes like volta.eidosagi.com"}
     },
@@ -36,7 +36,7 @@
       "id": "opf:eidos-video:surface:site",
       "type": "surface",
       "title": "Public chapter-scroll site",
-      "status": "building",
+      "status": "operating",
       "description": "Stats, ident-v6 player, then six mute anthem scenes. Mobile first.",
       "provenance": {"by": "agent:grok", "method": "volta.eidosagi.com scroll.js + Caddy on Hostkey"}
     },
@@ -44,7 +44,7 @@
       "id": "opf:eidos-video:work:ship",
       "type": "work",
       "title": "Ship the player on Hostkey",
-      "status": "building",
+      "status": "operating",
       "provenance": {"by": "agent:grok", "method": "same path as shipr.eidosagi.com"}
     }
   ],

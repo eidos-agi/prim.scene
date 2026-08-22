@@ -16,10 +16,15 @@
   }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
   document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
 
+  function revealIn(sec) {
+    if (!sec) return;
+    sec.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+  }
   var chapterIo = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
       if (!e.isIntersecting) return;
       var id = e.target.getAttribute("data-chapter");
+      revealIn(e.target);
       dots.forEach(function (d) {
         d.classList.toggle("on", d.getAttribute("data-chapter") === id);
       });
@@ -32,4 +37,10 @@
   document.querySelectorAll("section.chapter[data-chapter]").forEach(function (el) {
     chapterIo.observe(el);
   });
+  function revealHash() {
+    var id = (location.hash || "").replace(/^#/, "");
+    if (id) revealIn(document.getElementById(id));
+  }
+  window.addEventListener("hashchange", revealHash);
+  revealHash();
 })();

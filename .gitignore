@@ -7,3 +7,4 @@ renders/*.jpg
 # movies live on disk in versions/ and Desktop; do not balloon git
 examples/eidos-ident/versions/**/*.mp4
 examples/eidos-ident/site/*.mp4
+examples/eidos-ident/.secondlook/
