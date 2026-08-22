@@ -94,6 +94,46 @@ body.reel { background: var(--bg); }
   border-radius: 12px;
   background: #000;
 }
+.prims {
+  margin-top: 1.6rem;
+  max-width: 40rem;
+  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  overflow: hidden;
+}
+.prim {
+  display: grid;
+  grid-template-columns: 8.6rem 1fr;
+  gap: 0.3rem 1rem;
+  align-items: start;
+  padding: 0.95rem 1.05rem;
+  border-bottom: 1px solid var(--line);
+}
+.prim:last-child { border-bottom: 0; }
+.prim .who {
+  display: inline-block;
+  font: 700 0.72rem/1.4 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+}
+.prim .who:hover { filter: brightness(0.92); }
+.prim .why {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--ink-mid);
+}
+.prim .why code {
+  font-family: var(--mono);
+  font-size: 0.78em;
+  color: var(--ink);
+}
+@media (max-width: 720px) {
+  .prim { grid-template-columns: 1fr; gap: 0.25rem; }
+}
 @media (max-width: 720px) {
   .chapter.film { padding: 4.6rem 1.1rem 1.6rem; }
   .chapter.film h2 { font-size: clamp(1.45rem, 7.5vw, 2.1rem); }

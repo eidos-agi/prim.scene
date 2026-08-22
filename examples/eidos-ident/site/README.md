@@ -2,7 +2,7 @@
 
 Public player for **ident-v6** plus mute scene stills. Hostkey + Caddy, same path as [shipr.eidosagi.com](https://shipr.eidosagi.com). Scroll method copied from [volta.eidosagi.com](https://volta.eidosagi.com).
 
-Packs: OPF `examples/eidos-ident/opf`, OBF `prim.obf/examples/eidos-ident`, docket `notes/dockets/20260822-video-eidosagi`.
+Packs on the public reel: `prim.scene` (ident-v6 + anthem-v1), `prim.video`, `prim.obf`, `prim.opf` (`examples/eidos-ident/opf`), `prim.docket` (cockpit `notes/dockets/20260822-video-eidosagi`). Capture is video-3d-forge, not a prim.
 
 Source mp4 is not in git (`site/*.mp4`). Encode a web copy with `+faststart` before rsync. Poster, stills, fonts, and CSS ship in this directory — rsync the whole tree except README.
 

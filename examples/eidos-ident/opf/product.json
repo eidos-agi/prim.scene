@@ -37,7 +37,7 @@
       "type": "surface",
       "title": "Public chapter-scroll site",
       "status": "operating",
-      "description": "Stats, ident-v6 player, then six mute anthem scenes. Mobile first.",
+      "description": "Stats, ident-v6 player, six mute anthem scenes, then the five prims that store them. Mobile first.",
       "provenance": {"by": "agent:grok", "method": "volta.eidosagi.com scroll.js + Caddy on Hostkey"}
     },
     {
