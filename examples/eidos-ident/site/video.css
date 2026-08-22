@@ -3,33 +3,30 @@ body.reel { background: var(--bg); }
 .chapter.film { padding-top: 5.25rem; padding-bottom: 2.25rem; }
 .chapter.film .inner { width: min(1080px, 100%); }
 .chapter.film h2 { font-size: clamp(1.7rem, 4.6vw, 3.1rem); max-width: 22ch; }
-.stats {
+.pair {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.85rem;
-  margin-top: 2rem;
-  max-width: 36rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  max-width: 56rem;
+}
+.pair figure { margin: 0; }
+.pair img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: #000;
+}
+.pair figcaption {
+  margin-top: 0.55rem;
+  font: 700 0.68rem/1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
 }
 @media (max-width: 720px) {
-  .stats { grid-template-columns: 1fr; }
-}
-.stat {
-  background: var(--raised);
-  border: 1px solid var(--line);
-  border-radius: 0.55rem;
-  padding: 1.1rem 1rem 1rem;
-}
-.stat .n {
-  display: block;
-  font: 700 clamp(1.8rem, 6vw, 2.8rem)/1 var(--sans);
-  letter-spacing: -0.04em;
-  color: var(--accent);
-}
-.stat .l {
-  display: block;
-  margin-top: 0.45rem;
-  font: 500 0.82rem/1.35 var(--sans);
-  color: var(--ink-mid);
+  .pair { grid-template-columns: 1fr; }
 }
 .stage {
   position: relative;

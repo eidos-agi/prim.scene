@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Eidos Video</title>
-  <meta name="description" content="Eidos Video is reusable. AI-generated clips have no steering. Recapture the shot later without spending inference again.">
+  <meta name="description" content="Eidos Video stores the shot. Recapture it when the renderer improves. No new inference.">
   <meta name="theme-color" content="#161210">
   <meta name="color-scheme" content="dark">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,17 +22,17 @@
   <meta name="twitter:card" content="player">
   <link rel="stylesheet" href="./brand.css">
   <link rel="stylesheet" href="./volta.css">
-  <link rel="stylesheet" href="./video.css?v=7">
+  <link rel="stylesheet" href="./video.css?v=8">
 </head>
 <body class="reel">
   <header class="rail" id="rail">
-    <a class="brand" href="#story">
+    <a class="brand" href="#v6">
       <img src="./favicon.svg" width="28" height="28" alt="">
       <span class="wm">Eidos Video</span>
     </a>
     <nav class="rail-links" aria-label="Chapters">
-      <a href="#story">Story</a>
       <a href="#v6">v6</a>
+      <a href="#proof">Recapture</a>
       <a href="#s1">Aim</a>
       <a href="#s2">Hands</a>
       <a href="#s3">Mind</a>
@@ -45,8 +45,8 @@
   </header>
 
   <nav class="dots" aria-label="Section progress">
-    <a href="#story" data-chapter="story" title="Story"></a>
     <a href="#v6" data-chapter="v6" title="ident-v6"></a>
+    <a href="#proof" data-chapter="proof" title="Recapture"></a>
     <a href="#s1" data-chapter="s1" title="Aim"></a>
     <a href="#s2" data-chapter="s2" title="Hands"></a>
     <a href="#s3" data-chapter="s3" title="Mind"></a>
@@ -56,30 +56,11 @@
     <a href="#prims" data-chapter="prims" title="Process"></a>
   </nav>
 
-  <section class="chapter" id="story" data-chapter="story">
-    <div class="glow" aria-hidden="true"></div>
-    <div class="inner">
-      <p class="kicker reveal">Eidos Video</p>
-      <h1 class="reveal d1">Reusable<span class="stop">.</span></h1>
-      <p class="lede reveal d2">AI-generated video has no controls and no steering. You cannot prompt a slight tweak, and you cannot recreate the image. Unique paint. Eidos Video keeps the shot, so a later renderer can recapture it without inference.</p>
-      <div class="stats reveal d3">
-        <div class="stat"><span class="n">Steer</span><span class="l">The camera is a file. Move it. Recapture.</span></div>
-        <div class="stat"><span class="n">Tweak</span><span class="l">A slight change is a recapture, not another generate.</span></div>
-        <div class="stat"><span class="n">Recapture</span><span class="l">The same image. The scene is still the scene.</span></div>
-        <div class="stat"><span class="n">Later</span><span class="l">Renderers improve. Enhance the video without spending inference again.</span></div>
-      </div>
-      <div class="cta-row reveal d3">
-        <a class="btn btn-primary" href="#v6">Play ident-v6</a>
-        <a class="btn btn-ghost" href="#prims">The process</a>
-      </div>
-    </div>
-  </section>
-
   <section class="chapter film" id="v6" data-chapter="v6">
     <div class="inner">
-      <p class="kicker reveal">ident-v6 · Eidos Video</p>
-      <h2 class="reveal d1">Figure-skater into the mark<span class="stop">.</span></h2>
-      <p class="lede reveal d2">Sixteen seconds stored as a scene. Tweak it. Recapture it when the renderer improves. No letters.</p>
+      <p class="kicker reveal">Eidos Video</p>
+      <h1 class="reveal d1">ident-v6<span class="stop">.</span></h1>
+      <p class="lede reveal d2">Same scene. Recapture. No inference.</p>
       <div class="stage reveal d3">
         <video id="ident" playsinline webkit-playsinline preload="metadata" poster="./poster-v6.jpg?v=2" width="1920" height="1080">
           <source src="./ident-v6.mp4?v=2" type="video/mp4">
@@ -88,6 +69,25 @@
           <span>Play</span>
           <div class="hint">Tap to play with sound</div>
         </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="proof" data-chapter="proof">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="inner">
+      <p class="kicker reveal">Same scene.json</p>
+      <h2 class="reveal d1">Type came off<span class="stop">.</span></h2>
+      <p class="lede reveal d2">The camera did not move. No new prompt. Recapture, not another generate.</p>
+      <div class="pair reveal d3">
+        <figure>
+          <img src="./stills/before.jpg" alt="First capture of the mark, with type burned in" width="1920" height="1080">
+          <figcaption>First capture</figcaption>
+        </figure>
+        <figure>
+          <img src="./stills/after.jpg" alt="Recapture of the same mark, type off" width="1920" height="1080">
+          <figcaption>Recapture</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -146,7 +146,7 @@
     <div class="inner">
       <p class="kicker reveal">The process</p>
       <h2 class="reveal d1">The shot is a prim<span class="stop">.</span></h2>
-      <p class="lede reveal d2">Imagine spends inference on pixels you cannot steer. Eidos Video stores the scene, not the pixels. Change the camera. Only the render recalculates.</p>
+      <p class="lede reveal d2">AI-generated video spends inference on pixels you cannot steer. Eidos Video stores the scene. Change the camera. Only the render recalculates.</p>
       <div class="prims reveal d3">
         <div class="prim">
           <a class="who" href="https://github.com/eidos-agi/prim.scene">prim.scene</a>
@@ -154,19 +154,19 @@
         </div>
         <div class="prim">
           <a class="who" href="https://github.com/eidos-agi/prim.video">prim.video</a>
-          <p class="why">Scene order, cited. The ident is a list, not a baked clip you cannot open.</p>
+          <p class="why">Scene order, cited. The ident is a list, not a baked clip.</p>
         </div>
         <div class="prim">
           <span class="who">prim.obf</span>
-          <p class="why">Six mute beats. The story stays a book you can retell, not a one-shot generate.</p>
+          <p class="why">Six mute beats. The story stays a book you can retell.</p>
         </div>
         <div class="prim">
           <a class="who" href="https://github.com/eidos-agi/prim.opf">prim.opf</a>
-          <p class="why">This player as a product graph. Eidos Video is the product, not a page of leftover prompts.</p>
+          <p class="why">This player as a product graph.</p>
         </div>
         <div class="prim">
           <a class="who" href="https://github.com/eidos-agi/prim.docket">prim.docket</a>
-          <p class="why">Ten cards that planned the site. The next wave reads the board, not the chat.</p>
+          <p class="why">The board that planned the site.</p>
         </div>
       </div>
     </div>
@@ -191,9 +191,7 @@
       var v = document.getElementById("ident");
       var go = document.getElementById("go");
       if (!v || !go) return;
-      var started = false;
       function hide() {
-        started = true;
         go.hidden = true;
         v.controls = true;
       }

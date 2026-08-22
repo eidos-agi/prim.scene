@@ -2,7 +2,7 @@
 
 Public player for **ident-v6** plus mute scene stills. Hostkey + Caddy, same path as [shipr.eidosagi.com](https://shipr.eidosagi.com). Scroll method copied from [volta.eidosagi.com](https://volta.eidosagi.com).
 
-Public reel for **Eidos Video**: reusable scene video versus one-shot AI clips. Steer, tweak, recapture, enhance later without inference. Prims store the shot (`prim.scene`, `prim.video`, `prim.obf`, `prim.opf`, `prim.docket`). Capture is video-3d-forge, not a prim.
+Public reel for **Eidos Video**. Film first, then a recapture receipt (same `scene.json`, type off, no new inference), then mute scenes, then the prims. Capture is video-3d-forge, not a prim.
 
 Source mp4 is not in git (`site/*.mp4`). Encode a web copy with `+faststart` before rsync. Poster, stills, fonts, and CSS ship in this directory — rsync the whole tree except README.
 
