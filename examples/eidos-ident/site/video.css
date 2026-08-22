@@ -132,9 +132,7 @@ body.reel { background: var(--bg); }
   color: var(--ink);
 }
 @media (max-width: 720px) {
-  .prim { grid-template-columns: 1fr; gap: 0.25rem; }
-}
-@media (max-width: 720px) {
+  .prim { grid-template-columns: 1fr; gap: 0.25rem; padding: 0.8rem 0.95rem; }
   .chapter.film { padding: 4.6rem 1.1rem 1.6rem; }
   .chapter.film h2 { font-size: clamp(1.45rem, 7.5vw, 2.1rem); }
   .chapter.film .lede { font-size: 1rem; max-width: 32rem; }
