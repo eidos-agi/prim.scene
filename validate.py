@@ -74,6 +74,22 @@ def validate(pack: Path) -> list[str]:
             pos = k.get("position")
             if not (isinstance(pos, list) and len(pos) == 3):
                 err.append(f"object {oid}: key t={k.get('t')} position must be a 3-vector")
+    gkeys = (s.get("group") or {}).get("keys")
+    if gkeys:
+        times = [k.get("t") for k in gkeys]
+        if times[0] != 0:
+            err.append("group: first key t must be 0")
+        try:
+            last_t = float(times[-1])
+        except (TypeError, ValueError):
+            err.append(f"group: last key t={times[-1]} is not a number")
+            last_t = None
+        if last_t is not None and abs(last_t - float(dur)) > 1e-6:
+            err.append(f"group: last key t={times[-1]} must equal duration={dur}")
+        for a, b in zip(times, times[1:]):
+            if not (isinstance(a, (int, float)) and isinstance(b, (int, float)) and b > a):
+                err.append("group key t must be strictly increasing")
+                break
     for t in s.get("type") or []:
         inn, full = t.get("in"), t.get("full")
         if inn is None or full is None or not (0 <= inn < full <= dur):

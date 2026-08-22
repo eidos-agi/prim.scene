@@ -107,6 +107,20 @@ An object MAY carry `keys`, the same kind of timed samples as camera keys:
 
 The renderer samples these keys at `window.__seek(t)`. It MUST NOT invent object motion that is not in `scene.json`.
 
+### Group (optional)
+
+```json
+"group": {
+  "rotation_z_deg": 0,
+  "keys": [
+    { "t": 0.0, "rotation_y_deg": 0, "rotation_z_deg": 0 },
+    { "t": 16.0, "rotation_y_deg": 4320, "rotation_z_deg": 0 }
+  ]
+}
+```
+
+`keys` follow the same `t` rules as camera keys. `rotation_y_deg` / `rotation_z_deg` are degrees. A PID (or any other) spin must be **baked into these keys**. The renderer samples; it does not run the controller.
+
 ### Type (optional)
 
 On-screen type is not the story of the scene. Motion is. If present:

@@ -215,7 +215,6 @@
     scene.environmentIntensity = 0.55;
 
     const group = new THREE.Group();
-    group.rotation.z = THREE.MathUtils.degToRad((spec.group && spec.group.rotation_z_deg) || 0);
     scene.add(group);
 
     const geo = new THREE.SphereGeometry(R, 128, 96);
@@ -298,6 +297,22 @@
         mesh.position.fromArray(pose.pos);
         mesh.scale.setScalar(pose.scale);
       }
+    }
+    function sampleGroup(t) {
+      const g = spec.group || {};
+      const ks = g.keys;
+      const z0 = g.rotation_z_deg || 0;
+      if (!ks || !ks.length) return { y: 0, z: z0 };
+      const yOf = (k) => (k.rotation_y_deg != null ? k.rotation_y_deg : 0);
+      const zOf = (k) => (k.rotation_z_deg != null ? k.rotation_z_deg : z0);
+      if (t <= ks[0].t) return { y: yOf(ks[0]), z: zOf(ks[0]) };
+      const last = ks[ks.length - 1];
+      if (t >= last.t) return { y: yOf(last), z: zOf(last) };
+      let i = 0;
+      while (i < ks.length - 1 && t > ks[i + 1].t) i++;
+      const a = ks[i], b = ks[i + 1];
+      const u = (t - a.t) / Math.max(1e-6, b.t - a.t);
+      return { y: lerp(yOf(a), yOf(b), u), z: lerp(zOf(a), zOf(b), u) };
     }
     window.__objectPose = (id) => {
       const m = spheres[id];
@@ -414,6 +429,9 @@
       renderer.toneMappingExposure = lerp(0.84, 0.96, smoother(t / 4.0));
       bloom.strength = lerp(0.14, 0.10, smoother(t / 8));
 
+      const gpose = sampleGroup(t);
+      group.rotation.y = THREE.MathUtils.degToRad(gpose.y);
+      group.rotation.z = THREE.MathUtils.degToRad(gpose.z);
       applyObjectKeys(t);
       // Praxis micro-bob only when sage has no keys — keys are authority.
       if (sR && !sageHasKeys) sR.position.y = RIGHT_Y + Math.sin(t * 1.15) * 0.028;
