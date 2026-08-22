@@ -1,0 +1,68 @@
+{
+  "format": "opf",
+  "version": "1.0",
+  "product": "opf:eidos-video:product",
+  "entities": [
+    {
+      "id": "opf:eidos-video:product",
+      "type": "product",
+      "title": "video.eidosagi.com",
+      "status": "building",
+      "description": "Public ident and anthem player on Hostkey. Volta-style chapter scroll.",
+      "provenance": {"by": "agent:grok", "method": "Daniel asked to ship ident-v6 plus scenes like volta.eidosagi.com"}
+    },
+    {
+      "id": "opf:eidos-video:area:intent",
+      "type": "area",
+      "title": "Intent",
+      "status": "active",
+      "provenance": {"by": "agent:grok", "method": "OPF v1 required intent area"}
+    },
+    {
+      "id": "opf:eidos-video:intent",
+      "type": "intent",
+      "title": "Show the ident, the reprint math, and the scenes without a fourth stack",
+      "status": "active",
+      "provenance": {"by": "agent:grok", "method": "chat 2026-08-22"}
+    },
+    {
+      "id": "opf:eidos-video:area:experience",
+      "type": "area",
+      "title": "Experience",
+      "status": "active",
+      "provenance": {"by": "agent:grok", "method": "OPF v1 required experience area"}
+    },
+    {
+      "id": "opf:eidos-video:surface:site",
+      "type": "surface",
+      "title": "Public chapter-scroll site",
+      "status": "building",
+      "description": "Stats, ident-v6 player, then six mute anthem scenes. Mobile first.",
+      "provenance": {"by": "agent:grok", "method": "volta.eidosagi.com scroll.js + Caddy on Hostkey"}
+    },
+    {
+      "id": "opf:eidos-video:work:ship",
+      "type": "work",
+      "title": "Ship the player on Hostkey",
+      "status": "building",
+      "provenance": {"by": "agent:grok", "method": "same path as shipr.eidosagi.com"}
+    }
+  ],
+  "relationships": [
+    {"id": "opf:eidos-video:rel:root-intent-area", "type": "contains", "from": "opf:eidos-video:product", "to": "opf:eidos-video:area:intent", "order": 0},
+    {"id": "opf:eidos-video:rel:root-exp-area", "type": "contains", "from": "opf:eidos-video:product", "to": "opf:eidos-video:area:experience", "order": 1},
+    {"id": "opf:eidos-video:rel:intent", "type": "contains", "from": "opf:eidos-video:area:intent", "to": "opf:eidos-video:intent", "order": 0},
+    {"id": "opf:eidos-video:rel:surface", "type": "contains", "from": "opf:eidos-video:area:experience", "to": "opf:eidos-video:surface:site", "order": 0},
+    {"id": "opf:eidos-video:rel:work", "type": "contains", "from": "opf:eidos-video:area:experience", "to": "opf:eidos-video:work:ship", "order": 1},
+    {"id": "opf:eidos-video:rel:expresses", "type": "expresses", "from": "opf:eidos-video:product", "to": "opf:eidos-video:intent"},
+    {"id": "opf:eidos-video:rel:implements", "type": "implements", "from": "opf:eidos-video:work:ship", "to": "opf:eidos-video:surface:site"}
+  ],
+  "events": [
+    {"id": "opf:eidos-video:event:product-created", "type": "created", "at": "2026-08-22T19:20:00Z", "subjects": ["opf:eidos-video:product"], "detail": "Created product"},
+    {"id": "opf:eidos-video:event:area-intent-created", "type": "created", "at": "2026-08-22T19:20:01Z", "subjects": ["opf:eidos-video:area:intent"], "detail": "Created intent area"},
+    {"id": "opf:eidos-video:event:intent-created", "type": "created", "at": "2026-08-22T19:20:02Z", "subjects": ["opf:eidos-video:intent"], "detail": "Created intent"},
+    {"id": "opf:eidos-video:event:area-exp-created", "type": "created", "at": "2026-08-22T19:20:03Z", "subjects": ["opf:eidos-video:area:experience"], "detail": "Created experience area"},
+    {"id": "opf:eidos-video:event:surface-created", "type": "created", "at": "2026-08-22T19:20:04Z", "subjects": ["opf:eidos-video:surface:site"], "detail": "Created site surface"},
+    {"id": "opf:eidos-video:event:work-created", "type": "created", "at": "2026-08-22T19:20:05Z", "subjects": ["opf:eidos-video:work:ship"], "detail": "Created Hostkey ship work"}
+  ]
+}

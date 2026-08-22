@@ -1,0 +1,100 @@
+html[data-palette="ink"] { color-scheme: dark; }
+body.reel { background: var(--bg); }
+.chapter.film .inner { width: min(1080px, 100%); }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  margin-top: 2rem;
+  max-width: 42rem;
+}
+@media (max-width: 720px) {
+  .stats { grid-template-columns: 1fr; }
+}
+.stat {
+  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: 0.55rem;
+  padding: 1.1rem 1rem 1rem;
+}
+.stat .n {
+  display: block;
+  font: 700 clamp(1.8rem, 6vw, 2.8rem)/1 var(--sans);
+  letter-spacing: -0.04em;
+  color: var(--accent);
+}
+.stat .l {
+  display: block;
+  margin-top: 0.45rem;
+  font: 500 0.82rem/1.35 var(--sans);
+  color: var(--ink-mid);
+}
+.stage {
+  position: relative;
+  margin-top: 1.5rem;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.stage video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #000;
+  vertical-align: middle;
+}
+.play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  border: 0;
+  background: color-mix(in srgb, #000 28%, transparent);
+  color: var(--accent-ink);
+  cursor: pointer;
+  padding: 0;
+}
+.play[hidden] { display: none; }
+.play span {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: grid;
+  place-items: center;
+  font-size: 0;
+}
+.play span::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 14px 0 14px 24px;
+  border-color: transparent transparent transparent var(--accent-ink);
+  margin-left: 4px;
+}
+.play .hint {
+  font: 500 0.8rem/1 var(--sans);
+  color: #f0ebe4;
+  text-shadow: 0 1px 8px #000;
+}
+.still {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 1.4rem;
+  border-radius: 12px;
+  background: #000;
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .dots, .rail { display: none; }
+  .chapter.film { padding: 0; min-height: 100svh; }
+  .chapter.film .inner { width: 100%; }
+  .stage { border-radius: 0; margin: 0; }
+  .stage video { max-height: 100svh; height: 100svh; }
+}

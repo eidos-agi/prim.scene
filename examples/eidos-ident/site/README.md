@@ -1,6 +1,8 @@
 # video.eidosagi.com
 
-Public player for **ident-v5**. Hostkey + Caddy, same path as [shipr.eidosagi.com](https://shipr.eidosagi.com).
+Public player for **ident-v6** plus mute scene stills. Hostkey + Caddy, same path as [shipr.eidosagi.com](https://shipr.eidosagi.com). Scroll method copied from [volta.eidosagi.com](https://volta.eidosagi.com).
+
+Packs: OPF `examples/eidos-ident/opf`, OBF `prim.obf/examples/eidos-ident`, docket `notes/dockets/20260822-video-eidosagi`.
 
 Source mp4 is not in git (`site/*.mp4`). Encode a web copy with `+faststart` before rsync.
 
