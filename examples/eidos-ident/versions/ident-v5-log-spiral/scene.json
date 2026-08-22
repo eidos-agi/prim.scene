@@ -1,15 +1,15 @@
 {
   "format": "prim.scene",
   "version": "0.2.0",
-  "scene_id": "scene:eidos-agi:ident-v6",
-  "title": "Eidos ident v6",
+  "scene_id": "scene:eidos-agi:ident-v4",
+  "title": "Eidos ident v4",
   "duration": 16.0,
   "fps": 30,
   "size": [
     1920,
     1080
   ],
-  "intent": "Log-spiral inbound, then a contracting shell that spins like a figure skater into the t=12 crescendo. Mid swallows the cloud. Two workers and a sage boss. Mark Hermite-rests to face-camera at 16s.",
+  "intent": "Log-spiral inbound (one revolution, fast open). Three-lane brass/sage notes ride the ribbon. Wrap onto one at 12s, then two workers and a sage boss. Mark Hermite-rests to face-camera at 16s.",
   "camera": {
     "keys": [
       {
@@ -11549,1176 +11549,1176 @@
       },
       {
         "t": 8.2333,
-        "rotation_y_deg": -0.862,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.2667,
-        "rotation_y_deg": -1.723,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.3,
-        "rotation_y_deg": -2.585,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.3333,
-        "rotation_y_deg": -3.447,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.3667,
-        "rotation_y_deg": -4.31,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.4,
-        "rotation_y_deg": -5.173,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.4333,
-        "rotation_y_deg": -6.036,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.4667,
-        "rotation_y_deg": -6.901,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.5,
-        "rotation_y_deg": -7.767,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.5333,
-        "rotation_y_deg": -8.634,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.5667,
-        "rotation_y_deg": -9.504,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.6,
-        "rotation_y_deg": -10.375,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.6333,
-        "rotation_y_deg": -11.249,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.6667,
-        "rotation_y_deg": -12.127,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.7,
-        "rotation_y_deg": -13.007,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.7333,
-        "rotation_y_deg": -13.892,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.7667,
-        "rotation_y_deg": -14.781,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.8,
-        "rotation_y_deg": -15.675,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.8333,
-        "rotation_y_deg": -16.574,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.8667,
-        "rotation_y_deg": -17.48,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.9,
-        "rotation_y_deg": -18.392,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.9333,
-        "rotation_y_deg": -19.311,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 8.9667,
-        "rotation_y_deg": -20.238,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.0,
-        "rotation_y_deg": -21.173,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.0333,
-        "rotation_y_deg": -22.118,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.0667,
-        "rotation_y_deg": -23.072,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.1,
-        "rotation_y_deg": -24.037,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.1333,
-        "rotation_y_deg": -25.013,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.1667,
-        "rotation_y_deg": -26.001,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.2,
-        "rotation_y_deg": -27.002,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.2333,
-        "rotation_y_deg": -28.017,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.2667,
-        "rotation_y_deg": -29.047,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.3,
-        "rotation_y_deg": -30.092,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.3333,
-        "rotation_y_deg": -31.153,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.3667,
-        "rotation_y_deg": -32.233,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.4,
-        "rotation_y_deg": -33.33,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.4333,
-        "rotation_y_deg": -34.447,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.4667,
-        "rotation_y_deg": -35.586,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.5,
-        "rotation_y_deg": -36.746,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.5333,
-        "rotation_y_deg": -37.929,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.5667,
-        "rotation_y_deg": -39.137,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.6,
-        "rotation_y_deg": -40.37,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.6333,
-        "rotation_y_deg": -41.631,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.6667,
-        "rotation_y_deg": -42.92,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.7,
-        "rotation_y_deg": -44.24,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.7333,
-        "rotation_y_deg": -45.591,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.7667,
-        "rotation_y_deg": -46.976,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.8,
-        "rotation_y_deg": -48.396,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.8333,
-        "rotation_y_deg": -49.853,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.8667,
-        "rotation_y_deg": -51.349,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.9,
-        "rotation_y_deg": -52.885,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.9333,
-        "rotation_y_deg": -54.465,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 9.9667,
-        "rotation_y_deg": -56.089,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.0,
-        "rotation_y_deg": -57.761,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.0333,
-        "rotation_y_deg": -59.482,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.0667,
-        "rotation_y_deg": -61.255,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.1,
-        "rotation_y_deg": -63.082,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.1333,
-        "rotation_y_deg": -64.967,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.1667,
-        "rotation_y_deg": -66.911,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.2,
-        "rotation_y_deg": -68.917,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.2333,
-        "rotation_y_deg": -70.988,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.2667,
-        "rotation_y_deg": -73.128,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.3,
-        "rotation_y_deg": -75.339,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.3333,
-        "rotation_y_deg": -77.624,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.3667,
-        "rotation_y_deg": -79.986,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.4,
-        "rotation_y_deg": -82.429,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.4333,
-        "rotation_y_deg": -84.955,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.4667,
-        "rotation_y_deg": -87.569,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.5,
-        "rotation_y_deg": -90.273,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.5333,
-        "rotation_y_deg": -93.071,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.5667,
-        "rotation_y_deg": -95.966,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.6,
-        "rotation_y_deg": -98.961,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.6333,
-        "rotation_y_deg": -102.06,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.6667,
-        "rotation_y_deg": -105.266,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.7,
-        "rotation_y_deg": -108.582,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.7333,
-        "rotation_y_deg": -112.01,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.7667,
-        "rotation_y_deg": -115.554,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.8,
-        "rotation_y_deg": -119.217,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.8333,
-        "rotation_y_deg": -123.0,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.8667,
-        "rotation_y_deg": -126.905,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.9,
-        "rotation_y_deg": -130.936,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.9333,
-        "rotation_y_deg": -135.092,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 10.9667,
-        "rotation_y_deg": -139.375,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.0,
-        "rotation_y_deg": -143.786,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.0333,
-        "rotation_y_deg": -148.325,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.0667,
-        "rotation_y_deg": -152.991,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.1,
-        "rotation_y_deg": -157.784,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.1333,
-        "rotation_y_deg": -162.703,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.1667,
-        "rotation_y_deg": -167.746,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.2,
-        "rotation_y_deg": -172.909,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.2333,
-        "rotation_y_deg": -178.192,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.2667,
-        "rotation_y_deg": -183.589,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.3,
-        "rotation_y_deg": -189.097,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.3333,
-        "rotation_y_deg": -194.711,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.3667,
-        "rotation_y_deg": -200.426,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.4,
-        "rotation_y_deg": -206.237,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.4333,
-        "rotation_y_deg": -212.138,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.4667,
-        "rotation_y_deg": -218.122,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.5,
-        "rotation_y_deg": -224.184,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.5333,
-        "rotation_y_deg": -230.315,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.5667,
-        "rotation_y_deg": -236.511,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.6,
-        "rotation_y_deg": -242.763,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.6333,
-        "rotation_y_deg": -249.064,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.6667,
-        "rotation_y_deg": -255.409,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.7,
-        "rotation_y_deg": -261.791,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.7333,
-        "rotation_y_deg": -268.203,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.7667,
-        "rotation_y_deg": -274.64,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.8,
-        "rotation_y_deg": -281.096,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.8333,
-        "rotation_y_deg": -287.566,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.8667,
-        "rotation_y_deg": -294.047,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.9,
-        "rotation_y_deg": -300.535,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.9333,
-        "rotation_y_deg": -307.026,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 11.9667,
-        "rotation_y_deg": -313.519,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.0,
-        "rotation_y_deg": -320.012,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.0333,
-        "rotation_y_deg": -326.481,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.0667,
-        "rotation_y_deg": -332.9,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.1,
-        "rotation_y_deg": -339.269,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.1333,
-        "rotation_y_deg": -345.587,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.1667,
-        "rotation_y_deg": -351.856,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.2,
-        "rotation_y_deg": -358.075,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.2333,
-        "rotation_y_deg": -364.243,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.2667,
-        "rotation_y_deg": -370.361,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.3,
-        "rotation_y_deg": -376.429,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.3333,
-        "rotation_y_deg": -382.446,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.3667,
-        "rotation_y_deg": -388.413,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.4,
-        "rotation_y_deg": -394.329,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.4333,
-        "rotation_y_deg": -400.195,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.4667,
-        "rotation_y_deg": -406.009,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.5,
-        "rotation_y_deg": -411.773,
+        "rotation_y_deg": 0.0,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.5333,
-        "rotation_y_deg": -417.486,
+        "rotation_y_deg": 2.008,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.5667,
-        "rotation_y_deg": -423.149,
+        "rotation_y_deg": 5.877,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.6,
-        "rotation_y_deg": -428.76,
+        "rotation_y_deg": 10.437,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.6333,
-        "rotation_y_deg": -434.32,
+        "rotation_y_deg": 15.252,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.6667,
-        "rotation_y_deg": -439.829,
+        "rotation_y_deg": 20.161,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.7,
-        "rotation_y_deg": -445.287,
+        "rotation_y_deg": 25.106,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.7333,
-        "rotation_y_deg": -450.693,
+        "rotation_y_deg": 30.064,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.7667,
-        "rotation_y_deg": -456.048,
+        "rotation_y_deg": 35.027,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.8,
-        "rotation_y_deg": -461.352,
+        "rotation_y_deg": 39.992,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.8333,
-        "rotation_y_deg": -466.604,
+        "rotation_y_deg": 44.957,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.8667,
-        "rotation_y_deg": -471.804,
+        "rotation_y_deg": 49.922,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.9,
-        "rotation_y_deg": -476.953,
+        "rotation_y_deg": 54.888,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.9333,
-        "rotation_y_deg": -482.05,
+        "rotation_y_deg": 59.854,
         "rotation_z_deg": 0.0
       },
       {
         "t": 12.9667,
-        "rotation_y_deg": -487.095,
+        "rotation_y_deg": 64.819,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.0,
-        "rotation_y_deg": -492.089,
+        "rotation_y_deg": 69.785,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.0333,
-        "rotation_y_deg": -497.03,
+        "rotation_y_deg": 74.751,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.0667,
-        "rotation_y_deg": -501.919,
+        "rotation_y_deg": 79.716,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.1,
-        "rotation_y_deg": -506.757,
+        "rotation_y_deg": 84.682,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.1333,
-        "rotation_y_deg": -511.542,
+        "rotation_y_deg": 89.647,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.1667,
-        "rotation_y_deg": -516.275,
+        "rotation_y_deg": 94.613,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.2,
-        "rotation_y_deg": -520.955,
+        "rotation_y_deg": 99.579,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.2333,
-        "rotation_y_deg": -525.584,
+        "rotation_y_deg": 104.544,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.2667,
-        "rotation_y_deg": -530.159,
+        "rotation_y_deg": 109.51,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.3,
-        "rotation_y_deg": -534.683,
+        "rotation_y_deg": 114.476,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.3333,
-        "rotation_y_deg": -539.153,
+        "rotation_y_deg": 119.441,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.3667,
-        "rotation_y_deg": -543.571,
+        "rotation_y_deg": 124.407,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.4,
-        "rotation_y_deg": -547.936,
+        "rotation_y_deg": 129.373,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.4333,
-        "rotation_y_deg": -552.249,
+        "rotation_y_deg": 134.338,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.4667,
-        "rotation_y_deg": -556.508,
+        "rotation_y_deg": 139.304,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.5,
-        "rotation_y_deg": -560.715,
+        "rotation_y_deg": 144.269,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.5333,
-        "rotation_y_deg": -564.868,
+        "rotation_y_deg": 149.235,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.5667,
-        "rotation_y_deg": -568.969,
+        "rotation_y_deg": 154.201,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.6,
-        "rotation_y_deg": -573.016,
+        "rotation_y_deg": 159.166,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.6333,
-        "rotation_y_deg": -577.01,
+        "rotation_y_deg": 164.132,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.6667,
-        "rotation_y_deg": -580.951,
+        "rotation_y_deg": 169.098,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.7,
-        "rotation_y_deg": -584.838,
+        "rotation_y_deg": 174.063,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.7333,
-        "rotation_y_deg": -588.672,
+        "rotation_y_deg": 179.029,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.7667,
-        "rotation_y_deg": -592.452,
+        "rotation_y_deg": 183.994,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.8,
-        "rotation_y_deg": -596.179,
+        "rotation_y_deg": 188.96,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.8333,
-        "rotation_y_deg": -599.852,
+        "rotation_y_deg": 193.893,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.8667,
-        "rotation_y_deg": -603.471,
+        "rotation_y_deg": 198.76,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.9,
-        "rotation_y_deg": -607.036,
+        "rotation_y_deg": 203.562,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.9333,
-        "rotation_y_deg": -610.548,
+        "rotation_y_deg": 208.297,
         "rotation_z_deg": 0.0
       },
       {
         "t": 13.9667,
-        "rotation_y_deg": -614.005,
+        "rotation_y_deg": 212.965,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.0,
-        "rotation_y_deg": -617.409,
+        "rotation_y_deg": 217.567,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.0333,
-        "rotation_y_deg": -620.758,
+        "rotation_y_deg": 222.101,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.0667,
-        "rotation_y_deg": -624.054,
+        "rotation_y_deg": 226.568,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.1,
-        "rotation_y_deg": -627.295,
+        "rotation_y_deg": 230.968,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.1333,
-        "rotation_y_deg": -630.481,
+        "rotation_y_deg": 235.299,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.1667,
-        "rotation_y_deg": -633.613,
+        "rotation_y_deg": 239.562,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.2,
-        "rotation_y_deg": -636.691,
+        "rotation_y_deg": 243.756,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.2333,
-        "rotation_y_deg": -639.714,
+        "rotation_y_deg": 247.881,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.2667,
-        "rotation_y_deg": -642.683,
+        "rotation_y_deg": 251.937,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.3,
-        "rotation_y_deg": -645.597,
+        "rotation_y_deg": 255.924,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.3333,
-        "rotation_y_deg": -648.456,
+        "rotation_y_deg": 259.84,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.3667,
-        "rotation_y_deg": -651.26,
+        "rotation_y_deg": 263.687,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.4,
-        "rotation_y_deg": -654.01,
+        "rotation_y_deg": 267.463,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.4333,
-        "rotation_y_deg": -656.704,
+        "rotation_y_deg": 271.168,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.4667,
-        "rotation_y_deg": -659.344,
+        "rotation_y_deg": 274.802,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.5,
-        "rotation_y_deg": -661.928,
+        "rotation_y_deg": 278.365,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.5333,
-        "rotation_y_deg": -664.457,
+        "rotation_y_deg": 281.857,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.5667,
-        "rotation_y_deg": -666.931,
+        "rotation_y_deg": 285.276,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.6,
-        "rotation_y_deg": -669.349,
+        "rotation_y_deg": 288.623,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.6333,
-        "rotation_y_deg": -671.712,
+        "rotation_y_deg": 291.898,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.6667,
-        "rotation_y_deg": -674.02,
+        "rotation_y_deg": 295.099,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.7,
-        "rotation_y_deg": -676.272,
+        "rotation_y_deg": 298.228,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.7333,
-        "rotation_y_deg": -678.468,
+        "rotation_y_deg": 301.283,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.7667,
-        "rotation_y_deg": -680.609,
+        "rotation_y_deg": 304.264,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.8,
-        "rotation_y_deg": -682.694,
+        "rotation_y_deg": 307.172,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.8333,
-        "rotation_y_deg": -684.723,
+        "rotation_y_deg": 310.005,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.8667,
-        "rotation_y_deg": -686.696,
+        "rotation_y_deg": 312.763,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.9,
-        "rotation_y_deg": -688.613,
+        "rotation_y_deg": 315.447,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.9333,
-        "rotation_y_deg": -690.474,
+        "rotation_y_deg": 318.055,
         "rotation_z_deg": 0.0
       },
       {
         "t": 14.9667,
-        "rotation_y_deg": -692.279,
+        "rotation_y_deg": 320.587,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.0,
-        "rotation_y_deg": -694.028,
+        "rotation_y_deg": 323.044,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.0333,
-        "rotation_y_deg": -695.72,
+        "rotation_y_deg": 325.425,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.0667,
-        "rotation_y_deg": -697.357,
+        "rotation_y_deg": 327.729,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.1,
-        "rotation_y_deg": -698.936,
+        "rotation_y_deg": 329.957,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.1333,
-        "rotation_y_deg": -700.46,
+        "rotation_y_deg": 332.107,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.1667,
-        "rotation_y_deg": -701.926,
+        "rotation_y_deg": 334.18,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.2,
-        "rotation_y_deg": -703.336,
+        "rotation_y_deg": 336.176,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.2333,
-        "rotation_y_deg": -704.69,
+        "rotation_y_deg": 338.093,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.2667,
-        "rotation_y_deg": -705.986,
+        "rotation_y_deg": 339.933,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.3,
-        "rotation_y_deg": -707.226,
+        "rotation_y_deg": 341.694,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.3333,
-        "rotation_y_deg": -708.409,
+        "rotation_y_deg": 343.376,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.3667,
-        "rotation_y_deg": -709.535,
+        "rotation_y_deg": 344.978,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.4,
-        "rotation_y_deg": -710.603,
+        "rotation_y_deg": 346.502,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.4333,
-        "rotation_y_deg": -711.615,
+        "rotation_y_deg": 347.946,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.4667,
-        "rotation_y_deg": -712.569,
+        "rotation_y_deg": 349.309,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.5,
-        "rotation_y_deg": -713.466,
+        "rotation_y_deg": 350.593,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.5333,
-        "rotation_y_deg": -714.306,
+        "rotation_y_deg": 351.795,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.5667,
-        "rotation_y_deg": -715.089,
+        "rotation_y_deg": 352.917,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.6,
-        "rotation_y_deg": -715.813,
+        "rotation_y_deg": 353.958,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.6333,
-        "rotation_y_deg": -716.481,
+        "rotation_y_deg": 354.917,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.6667,
-        "rotation_y_deg": -717.09,
+        "rotation_y_deg": 355.794,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.7,
-        "rotation_y_deg": -717.642,
+        "rotation_y_deg": 356.589,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.7333,
-        "rotation_y_deg": -718.136,
+        "rotation_y_deg": 357.302,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.7667,
-        "rotation_y_deg": -718.572,
+        "rotation_y_deg": 357.932,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.8,
-        "rotation_y_deg": -718.951,
+        "rotation_y_deg": 358.479,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.8333,
-        "rotation_y_deg": -719.271,
+        "rotation_y_deg": 358.942,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.8667,
-        "rotation_y_deg": -719.533,
+        "rotation_y_deg": 359.322,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.9,
-        "rotation_y_deg": -719.737,
+        "rotation_y_deg": 359.618,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.9333,
-        "rotation_y_deg": -719.883,
+        "rotation_y_deg": 359.83,
         "rotation_z_deg": 0.0
       },
       {
         "t": 15.9667,
-        "rotation_y_deg": -719.971,
+        "rotation_y_deg": 359.957,
         "rotation_z_deg": 0.0
       },
       {
         "t": 16.0,
-        "rotation_y_deg": -720.0,
+        "rotation_y_deg": 360.0,
         "rotation_z_deg": 0.0
       }
     ],
-    "cites": "skater yaw \u03c9\u221d1/R\u00b2 from t=8.2s peak 3.4 at t=12.0s, decay \u03c4=0.9s, Hermite rest from 12.0s"
+    "cites": "logo yaw from t=12.5s omega=2.6 hold until 13.8s then Hermite rest-to-2\u03c0 at 16s"
   },
   "road": {
     "width": 2.55,
@@ -23689,15 +23689,11 @@
     "omega": 2.35,
     "dot_r": 0.14,
     "stream_until": 5.8,
-    "morph": 7.0,
+    "morph": 7.4,
     "tighten": 9.0,
-    "coalesce": 11.8,
-    "gone": 12.1,
-    "shell_r0": 2.8,
-    "shell_r1": 1.02,
-    "shell_t0": 8.2,
-    "shell_t1": 12.0,
-    "cites": "gather onto contracting rotating shell; mid absorbs at t=12"
+    "coalesce": 11.4,
+    "gone": 12.15,
+    "cites": "3-lane GH notes on the ribbon; wrap onto the one at crescendo"
   },
   "type": [
     {

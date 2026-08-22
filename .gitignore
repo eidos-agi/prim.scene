@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 renders/*.mp4
 renders/*.jpg
+
+# movies live on disk in versions/ and Desktop; do not balloon git
+examples/eidos-ident/versions/**/*.mp4

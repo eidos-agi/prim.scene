@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Ident baker: log-spiral inbound → contracting shell → skater spin → mark.
+"""Ident baker: log-spiral inbound → accretion → logo.
 
-Camera follows one equiangular spiral. Notes gather onto a shrinking
-Fibonacci shell that spins ω ∝ 1/R² into the t=12 crescendo, then Hermite
-rest. Baked into scene.json. The renderer samples; it does not fly.
+Three lanes of brass/sage notes sit on a ribbon. Camera follows one
+equiangular spiral (look-ahead scaled with radius, banked on curvature,
+fast open then bleed). Notes wrap onto one at 12s, then the mark.
+Baked into scene.json. The renderer samples; it does not fly.
 """
 from __future__ import annotations
 
@@ -14,17 +15,15 @@ from pathlib import Path
 DURATION = 16.0
 FPS = 30
 CRESCENDO = 12.0
-HOLD_FAST = 12.0  # Hermite rest starts at the crescendo (skater hits the pose)
+LOGO_SPIN = 12.5
+HOLD_FAST = 13.8
+OMEGA_FAST = 2.6
+KP_W = 1.55
+KI_W = 0.04
+KD_W = 0.22
+KP_TH = 2.2
+I_CLAMP = 5.0
 DT = 1.0 / 240.0
-VERSION = "ident-v6"
-
-# Figure-skater yaw (Fable 2026-08-22): ω ∝ 1/R², peak at crescendo.
-SPIN_START = 8.2
-SHELL_R0 = 2.8
-SHELL_R1 = 1.02
-OMEGA_PEAK = 3.4
-TAU = 0.9
-YAW_SIGN = -1.0  # three.js +Y vs inbound spiral sense
 
 Y_BRASS = 0.16
 Y_SAGE = 0.72
@@ -55,14 +54,8 @@ def _smooth(u: float) -> float:
     return u * u * u * (u * (u * 6 - 15) + 10)
 
 
-def shell_radius(t: float) -> float:
-    """Contracting Fibonacci shell. Same smoother the renderer uses."""
-    u = _smooth((t - SPIN_START) / max(1e-6, CRESCENDO - SPIN_START))
-    return SHELL_R0 + u * (SHELL_R1 - SHELL_R0)
-
-
 def simulate_pid(duration: float = DURATION) -> list[tuple[float, float, float]]:
-    """Skater yaw: silent → 1/R² spin-up to t=12 → exp decay → Hermite rest."""
+    """Logo yaw. Silent until LOGO_SPIN, rip, then rest-to-face at 16s."""
     theta = 0.0
     omega = 0.0
     t = 0.0
@@ -72,15 +65,11 @@ def simulate_pid(duration: float = DURATION) -> list[tuple[float, float, float]]
     a = b = c = d = 0.0
     out: list[tuple[float, float, float]] = []
     while t <= duration + 1e-9:
-        if t < SPIN_START:
+        if t < LOGO_SPIN:
             omega = 0.0
             theta = 0.0
-        elif t < CRESCENDO:
-            rs = shell_radius(t)
-            omega = YAW_SIGN * OMEGA_PEAK * (SHELL_R1 / max(rs, 1e-6)) ** 2
-            theta += omega * DT
         elif t < HOLD_FAST:
-            omega *= math.exp(-DT / TAU)
+            omega += (28.0 * (OMEGA_FAST - omega)) * DT
             theta += omega * DT
         else:
             if target is None:
@@ -88,15 +77,9 @@ def simulate_pid(duration: float = DURATION) -> list[tuple[float, float, float]]
                 t_hold = HOLD_FAST
                 T_rest = max(1e-6, duration - HOLD_FAST)
                 natural = th0 + w0 * T_rest / 2.0
-                two_pi = 2 * math.pi
-                if w0 >= 0:
-                    target = two_pi * math.ceil((natural - 0.15) / two_pi)
-                    if target < th0 + 0.4:
-                        target += two_pi
-                else:
-                    target = two_pi * math.floor((natural + 0.15) / two_pi)
-                    if target > th0 - 0.4:
-                        target -= two_pi
+                target = 2 * math.pi * math.ceil((natural - 0.15) / (2 * math.pi))
+                if target < th0 + 0.4:
+                    target += 2 * math.pi
                 a, b = th0, w0
                 c = (3.0 * (target - th0) - (2.0 * w0) * T_rest) / (T_rest * T_rest)
                 d = (2.0 * (th0 - target) + w0 * T_rest) / (T_rest * T_rest * T_rest)
@@ -343,15 +326,15 @@ def build_scene() -> dict:
     return {
         "format": "prim.scene",
         "version": "0.2.0",
-        "scene_id": "scene:eidos-agi:ident-v6",
-        "title": "Eidos ident v6",
+        "scene_id": "scene:eidos-agi:ident-v4",
+        "title": "Eidos ident v4",
         "duration": DURATION,
         "fps": FPS,
         "size": [1920, 1080],
         "intent": (
-            "Log-spiral inbound, then a contracting shell that spins like a figure "
-            "skater into the t=12 crescendo. Mid swallows the cloud. Two workers and "
-            "a sage boss. Mark Hermite-rests to face-camera at 16s."
+            "Log-spiral inbound (one revolution, fast open). Three-lane brass/sage "
+            "notes ride the ribbon. Wrap onto one at 12s, then two workers and a sage "
+            "boss. Mark Hermite-rests to face-camera at 16s."
         ),
         "camera": {
             "keys": camera_keys(),
@@ -365,8 +348,8 @@ def build_scene() -> dict:
             "rotation_z_deg": 0,
             "keys": group_keys(samples),
             "cites": (
-                f"skater yaw ω∝1/R² from t={SPIN_START}s peak {OMEGA_PEAK} "
-                f"at t={CRESCENDO}s, decay τ={TAU}s, Hermite rest from {HOLD_FAST}s"
+                f"logo yaw from t={LOGO_SPIN}s omega={OMEGA_FAST} "
+                f"hold until {HOLD_FAST}s then Hermite rest-to-2π at 16s"
             ),
         },
         "road": {
@@ -385,15 +368,11 @@ def build_scene() -> dict:
             "omega": 2.35,
             "dot_r": 0.14,
             "stream_until": 5.8,
-            "morph": 7.0,
+            "morph": 7.4,
             "tighten": 9.0,
-            "coalesce": 11.8,
-            "gone": 12.1,
-            "shell_r0": SHELL_R0,
-            "shell_r1": SHELL_R1,
-            "shell_t0": SPIN_START,
-            "shell_t1": CRESCENDO,
-            "cites": "gather onto contracting rotating shell; mid absorbs at t=12",
+            "coalesce": 11.4,
+            "gone": 12.15,
+            "cites": "3-lane GH notes on the ribbon; wrap onto the one at crescendo",
         },
         "type": [
             {"id": "word", "in": 12.2, "full": 13.05, "text": "Eidos AGI"},
@@ -417,18 +396,9 @@ def main() -> None:
     def nearest(t):
         return min(samples, key=lambda s: abs(s[0] - t))
 
-    hermite_om = []
-    for t in (0.0, 8.2, 10.0, 12.0, 13.8, 14.5, 15.5, 16.0):
+    for t in (0.0, 6.9, 12.0, 12.5, 13.75, 14.5, 15.5, 16.0):
         _, th, om = nearest(t)
-        print(
-            f"t={t:5.2f}  yaw={math.degrees(th):8.1f} deg  "
-            f"omega={om:7.3f} rad/s  Rs={shell_radius(t):5.2f}  "
-            f"turns={th / (2 * math.pi):+.3f}"
-        )
-        if t >= HOLD_FAST:
-            hermite_om.append(abs(om))
-    entry = abs(nearest(HOLD_FAST)[2])
-    print("hermite max|ω|", round(max(hermite_om) if hermite_om else 0, 3), "entry", round(entry, 3))
+        print(f"t={t:5.2f}  logo_yaw={math.degrees(th):8.1f} deg  omega={om:7.3f} rad/s")
     scene = build_scene()
     cam = scene["camera"]["keys"]
     print("-- spiral --")
