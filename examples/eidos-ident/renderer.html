@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Eidos AGI — ident</title>
+  <style>
+    @font-face {
+      font-family: "Space Grotesk";
+      src: url("./assets/SpaceGrotesk-latin.woff2") format("woff2"),
+           url("./assets/SpaceGrotesk-Regular.otf") format("opentype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Space Grotesk";
+      src: url("./assets/SpaceGrotesk-Medium.otf") format("opentype");
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Space Grotesk";
+      src: url("./assets/SpaceGrotesk-Bold.otf") format("opentype");
+      font-weight: 700;
+      font-style: normal;
+    }
+    html, body {
+      margin: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: #161210;
+      font-family: "Space Grotesk", sans-serif;
+      color: #dcd5cb;
+    }
+    #c {
+      position: fixed;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+    }
+    #type {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 96px;
+      text-align: center;
+      pointer-events: none;
+      z-index: 4;
+    }
+    #word {
+      font-weight: 700;
+      font-size: 54px;
+      letter-spacing: 0.18em;
+      line-height: 1;
+      color: #ede5d8;
+      opacity: 0;
+    }
+    #word .agi {
+      font-weight: 500;
+      letter-spacing: 0.32em;
+      color: #8b8179;
+      padding-left: 0.35em;
+    }
+    #rule {
+      width: 0;
+      height: 2px;
+      margin: 22px auto 18px;
+      background: #d8a263;
+      opacity: 0.95;
+    }
+    #lede {
+      font-weight: 400;
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      color: #b5aaa0;
+      opacity: 0;
+    }
+    #grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0.07;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+    #vignette {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 3;
+      background: radial-gradient(ellipse at 50% 42%, transparent 42%, rgba(12,9,8,0.55) 100%);
+    }
+  </style>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="c"></div>
+  <div id="vignette"></div>
+  <div id="type">
+    <div id="word">Eidos<span class="agi">AGI</span></div>
+    <div id="rule"></div>
+    <div id="lede">Software for agents. Governance for reality.</div>
+  </div>
+  <div id="grain"></div>
+  <script type="module">
+    import * as THREE from "three";
+    import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+    import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
+    import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
+    import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
+    import { RectAreaLightUniformsLib } from "three/addons/lights/RectAreaLightUniformsLib.js";
+
+    const W = 1920, H = 1080;
+    const BG = 0x161210;
+
+    // Live mark (favicon.svg): rotate -6°, third dot raised.
+    // r=1. Sphere centers, local space, before group tilt.
+    const R = 1;
+    const LEFT  = new THREE.Vector3(-2.207, 0, 0);
+    const MID   = new THREE.Vector3(0, 0, 0);
+    const RIGHT = new THREE.Vector3(2.207, 0.58, 0); // Praxis: alive, not static
+
+    const clamp01 = (x) => Math.max(0, Math.min(1, x));
+    const smoother = (t) => {
+      t = clamp01(t);
+      return t * t * t * (t * (t * 6 - 15) + 10);
+    };
+    const lerp = (a, b, t) => a + (b - a) * t;
+    const fade = (t, a, b, c, d) => {
+      if (t < a || t > d) return 0;
+      if (t < b) return smoother((t - a) / Math.max(1e-6, b - a));
+      if (t < c) return 1;
+      return 1 - smoother((t - c) / Math.max(1e-6, d - c));
+    };
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(BG);
+    scene.fog = new THREE.FogExp2(BG, 0.032);
+
+    const camera = new THREE.PerspectiveCamera(34, W / H, 0.05, 80);
+    camera.position.set(2.7, 0.55, 0.9);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: "high-performance" });
+    renderer.setPixelRatio(1);
+    renderer.setSize(W, H);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 0.92;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    document.getElementById("c").appendChild(renderer.domElement);
+    Object.assign(renderer.domElement.style, { width: "1920px", height: "1080px", display: "block" });
+
+    const composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene, camera));
+    const bloom = new UnrealBloomPass(new THREE.Vector2(W, H), 0.12, 0.4, 0.9);
+    composer.addPass(bloom);
+    composer.addPass(new OutputPass());
+
+    RectAreaLightUniformsLib.init();
+    const windowLight = new THREE.RectAreaLight(0xffd4a8, 0, 7.2, 4.2);
+    windowLight.position.set(-4.2, 6.8, 5.4);
+    windowLight.lookAt(0, 0.2, 0);
+    scene.add(windowLight);
+
+    const sagePanel = new THREE.RectAreaLight(0xc8d4ad, 0, 2.4, 3.6);
+    sagePanel.position.set(5.6, 2.2, 3.2);
+    sagePanel.lookAt(0, 0.2, 0);
+    scene.add(sagePanel);
+
+    // Workshop lamp — warm, casts the contact shadows the area lights can't.
+    const key = new THREE.SpotLight(0xffd2a0, 0, 28, 0.48, 0.82, 1.35);
+    key.position.set(-5.2, 9.4, 6.2);
+    key.castShadow = true;
+    key.shadow.mapSize.set(2048, 2048);
+    key.shadow.bias = -0.00015;
+    key.shadow.camera.near = 1;
+    key.shadow.camera.far = 28;
+    scene.add(key);
+    scene.add(key.target);
+
+    const rim = new THREE.DirectionalLight(0x8fa385, 0);
+    rim.position.set(7.5, 2.4, -5.5);
+    scene.add(rim);
+
+    const brassFill = new THREE.PointLight(0xd8a263, 0, 16, 2);
+    brassFill.position.set(1.6, 1.4, 3.4);
+    scene.add(brassFill);
+
+    const bounce = new THREE.HemisphereLight(0x3a322c, 0x0c0a09, 0.28);
+    scene.add(bounce);
+
+    // Cheap workshop IBL: a warm window + dark walls so brass has something to chew.
+    const envScene = new THREE.Scene();
+    envScene.background = new THREE.Color(0x120e0c);
+    const win = new THREE.Mesh(
+      new THREE.PlaneGeometry(8, 5),
+      new THREE.MeshBasicMaterial({ color: 0xffe1b8 })
+    );
+    win.position.set(-6, 4, 8);
+    win.lookAt(0, 0, 0);
+    envScene.add(win);
+    const strip = new THREE.Mesh(
+      new THREE.PlaneGeometry(2.2, 6),
+      new THREE.MeshBasicMaterial({ color: 0xc8d4ad })
+    );
+    strip.position.set(7, 1.5, 4);
+    strip.lookAt(0, 0, 0);
+    envScene.add(strip);
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(envScene, 0.06).texture;
+    scene.environmentIntensity = 0.55;
+
+    const group = new THREE.Group();
+    group.rotation.z = THREE.MathUtils.degToRad(-6);
+    scene.add(group);
+
+    const geo = new THREE.SphereGeometry(R, 128, 96);
+
+    const brassL = new THREE.MeshPhysicalMaterial({
+      color: 0xd8a263,
+      metalness: 1,
+      roughness: 0.18,
+      envMapIntensity: 1.15,
+      specularIntensity: 1,
+    });
+    const brassM = new THREE.MeshPhysicalMaterial({
+      color: 0xc4935a,
+      metalness: 1,
+      roughness: 0.26,
+      envMapIntensity: 1.05,
+    });
+    const sage = new THREE.MeshPhysicalMaterial({
+      color: 0x9aaf88,
+      metalness: 0.04,
+      roughness: 0.32,
+      clearcoat: 0.4,
+      clearcoatRoughness: 0.22,
+      sheen: 0.35,
+      sheenRoughness: 0.45,
+      sheenColor: new THREE.Color(0xc8d4ad),
+      envMapIntensity: 0.45,
+    });
+
+    const sL = new THREE.Mesh(geo, brassL);
+    const sM = new THREE.Mesh(geo, brassM);
+    const sR = new THREE.Mesh(geo, sage);
+    sL.position.copy(LEFT);
+    sM.position.copy(MID);
+    sR.position.copy(RIGHT);
+    for (const s of [sL, sM, sR]) {
+      s.castShadow = true;
+      s.receiveShadow = true;
+      group.add(s);
+    }
+
+    const floor = new THREE.Mesh(
+      new THREE.PlaneGeometry(40, 40),
+      new THREE.MeshStandardMaterial({ color: 0x0b0908, roughness: 0.94, metalness: 0.03 })
+    );
+    floor.rotation.x = -Math.PI / 2;
+    floor.position.y = -1.02;
+    floor.receiveShadow = true;
+    scene.add(floor);
+
+    // Workshop dust in the lamp — not AI particles. Specks.
+    const DUST_N = 900;
+    const dustPos = new Float32Array(DUST_N * 3);
+    const dustBase = [];
+    for (let i = 0; i < DUST_N; i++) {
+      const x = (Math.random() - 0.5) * 14;
+      const y = Math.random() * 8 - 0.5;
+      const z = (Math.random() - 0.5) * 12;
+      dustPos[i * 3] = x; dustPos[i * 3 + 1] = y; dustPos[i * 3 + 2] = z;
+      dustBase.push({ x, y, z, p: Math.random() * Math.PI * 2, s: 0.15 + Math.random() * 0.35 });
+    }
+    const dustGeo = new THREE.BufferGeometry();
+    dustGeo.setAttribute("position", new THREE.BufferAttribute(dustPos, 3));
+    const dust = new THREE.Points(
+      dustGeo,
+      new THREE.PointsMaterial({
+        color: 0xe6d3b3,
+        size: 0.018,
+        transparent: true,
+        opacity: 0.0,
+        depthWrite: false,
+        sizeAttenuation: true,
+      })
+    );
+    scene.add(dust);
+
+    const word = document.getElementById("word");
+    const lede = document.getElementById("lede");
+    const rule = document.getElementById("rule");
+
+    // Camera: a slow aerial. Far → fly through the trilogy → settle on the mark.
+    const keys = [
+      { t:  0.00, pos: [16.5, 7.4, 22.0], look: [1.4, 0.4, 0.2],  fov: 46 },
+      { t:  3.40, pos: [ 9.2, 3.8, 12.5], look: [1.8, 0.35, 0.1], fov: 40 },
+      { t:  6.80, pos: [ 4.6, 1.15, 4.2], look: [2.1, 0.5, 0.05], fov: 36 },
+      { t:  9.20, pos: [ 3.35, 0.88, 2.45], look: [2.05, 0.48, 0], fov: 36 },
+      { t: 11.60, pos: [-1.8, 3.1,  6.8], look: [0.3, 0.25, 0],   fov: 34 },
+      { t: 14.20, pos: [ 0.08, 0.58, 12.4], look: [0.0, 0.22, 0],  fov: 32 },
+      { t: 16.00, pos: [ 0.00, 0.50, 12.05], look: [0.0, 0.20, 0], fov: 32 },
+    ];
+
+    function sampleKeys(t) {
+      if (t <= keys[0].t) return keys[0];
+      if (t >= keys[keys.length - 1].t) return keys[keys.length - 1];
+      let i = 0;
+      while (i < keys.length - 1 && t > keys[i + 1].t) i++;
+      const a = keys[i], b = keys[i + 1];
+      const u = smoother((t - a.t) / (b.t - a.t));
+      return {
+        pos: a.pos.map((v, k) => lerp(v, b.pos[k], u)),
+        look: a.look.map((v, k) => lerp(v, b.look[k], u)),
+        fov: lerp(a.fov, b.fov, u),
+      };
+    }
+
+    const _look = new THREE.Vector3();
+    function seek(t) {
+      const cam = sampleKeys(t);
+      camera.position.set(cam.pos[0], cam.pos[1], cam.pos[2]);
+      _look.set(cam.look[0], cam.look[1], cam.look[2]);
+      camera.lookAt(_look);
+      camera.fov = cam.fov;
+      camera.updateProjectionMatrix();
+
+      const lightOn = lerp(0.55, 1, smoother(t / 2.2));
+      key.intensity = 140 * lightOn;
+      key.target.position.set(0.2, 0.2, 0);
+      key.target.updateMatrixWorld();
+      windowLight.intensity = 14 * lightOn;
+      sagePanel.intensity = 5.5 * lightOn;
+      rim.intensity = 1.6 * lightOn;
+      brassFill.intensity = 8 * lightOn;
+      renderer.toneMappingExposure = lerp(0.72, 0.90, smoother(t / 3.0));
+      bloom.strength = lerp(0.16, 0.10, smoother(t / 8));
+
+      // Sage sphere: a 2mm hover. Alive.
+      const hover = Math.sin(t * 1.15) * 0.028;
+      sR.position.y = RIGHT.y + hover;
+
+      dust.material.opacity = 0.18 * lightOn;
+      const attr = dust.geometry.attributes.position;
+      for (let i = 0; i < DUST_N; i++) {
+        const b = dustBase[i];
+        attr.array[i * 3]     = b.x + Math.sin(t * b.s + b.p) * 0.12;
+        attr.array[i * 3 + 1] = b.y + (t * 0.07 * b.s) % 8 - 0.5;
+        attr.array[i * 3 + 2] = b.z + Math.cos(t * b.s * 0.8 + b.p) * 0.08;
+      }
+      attr.needsUpdate = true;
+
+      word.style.opacity = String(fade(t, 12.2, 13.1, 30, 30));
+      const ruleT = fade(t, 12.8, 13.7, 30, 30);
+      rule.style.opacity = String(ruleT);
+      rule.style.width = `${Math.round(ruleT * 168)}px`;
+      lede.style.opacity = String(fade(t, 13.4, 14.4, 30, 30));
+
+      composer.render();
+    }
+
+    window.__seek = seek;
+    window.__duration = 16;
+    seek(0);
+    document.fonts.ready.then(() => {
+      seek(0);
+      window.__ready = true;
+    });
+    window.__ready = false;
+    setTimeout(() => { window.__ready = true; }, 1200);
+  </script>
+</body>
+</html>

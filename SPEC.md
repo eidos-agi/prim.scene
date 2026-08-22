@@ -1,0 +1,125 @@
+# prim.scene — SPEC (v0.1.0-draft)
+
+Profile for **one cinematic scene**. Family name: `prim.scene`.
+
+Not OKF. Not a video. Not CAD (`3d-forge`). The mp4 is a projection.
+
+---
+
+## 1. Split
+
+| | prim.scene | prim.video | video-3d-forge | 3d-forge |
+|---|---|---|---|---|
+| Store | one beat | ordered scenes | renderer / capture | SLDPRT → GLB |
+| Authority | `scene.json` | `video.json` | none (tool) | mesh |
+| Open | `ui` | `ui` | `video-3d-forge capture` | `sld2glb` |
+
+Do not mint `prim.surface`. The player is a tool.
+
+---
+
+## 2. Face (`index.md`)
+
+```yaml
+---
+profile: scene
+scene_version: "0.1.0"
+type: scene
+scene_id: scene:eidos-agi:ident-v1
+title: Eidos ident v1
+status: draft
+scene: scene.json
+renderer: renderer.html
+---
+```
+
+Required: `profile: scene`, `scene_version`, `type: scene`, `scene_id`, `title`, `status`, `scene`.
+
+`scene_id` is immutable: `scene:<namespace>:<slug>`.
+
+Optional face path: `renderer` (HTML that implements `window.__seek(t)` and `window.__duration`).
+
+---
+
+## 3. Store
+
+```
+<pack>/
+  index.md           # face
+  scene.json         # REQUIRED — sole scene authority
+  log.md             # strongly recommended
+  renderer.html      # projection; may lag scene.json in v0.1
+  assets/            # fonts, marks, textures cited by scene.json
+  audio/             # cited beds (not the song library)
+  renders/           # generated frames / mp4 — never authority
+```
+
+Interchange: `.prim.zip` whose root is this directory.
+
+---
+
+## 4. Canonical model (`scene.json`)
+
+Required: `format`, `version`, `scene_id`, `title`, `duration`, `fps`, `size`, `intent`, `camera`, `objects`.
+
+`format` MUST be `prim.scene`. `duration` is seconds, `> 0`. `fps` is a positive integer. `size` is `[width, height]` pixels.
+
+### Camera
+
+```json
+"camera": {
+  "keys": [
+    { "t": 0.0, "pos": [16.5, 7.4, 22.0], "look": [1.4, 0.4, 0.2], "fov": 46 }
+  ]
+}
+```
+
+- `t` is seconds from scene start. Keys MUST be strictly increasing in `t`.
+- First key `t` MUST be `0`. Last key `t` MUST equal `duration`.
+- `pos` and `look` are world-space `[x,y,z]`. `fov` is vertical degrees.
+
+A key that would place the camera **inside** a solid object is a defect. v0.1 records this as LAW; mechanical intersection lands when the renderer can measure it.
+
+### Objects
+
+Each object: `id`, `kind`, `position`. Optional `material`, `rotation`, `scale`.
+
+v0.1 kinds: `sphere`, `plane`, `group`. Unknown kinds are allowed; the renderer may ignore them.
+
+### Type (optional)
+
+On-screen type is not the story of the scene. Motion is. If present:
+
+```json
+"type": [
+  { "id": "word", "in": 12.2, "full": 13.1, "text": "Eidos AGI" }
+]
+```
+
+`in` / `full` are seconds. `in` < `full` ≤ `duration`.
+
+### Audio (optional)
+
+```json
+"audio": { "file": "audio/bed.m4a", "cites": "track 1 last 16s" }
+```
+
+`file` is a pack-relative path. The scene does not own the song. Ident-length fades belong here as a *cite of a bed*, not a music-forge split.
+
+---
+
+## 5. Compose
+
+A scene MAY `compose:` brand (`obif`) or other scenes it samples. It MUST NOT copy those packs' authority files into `scene.json`.
+
+A scene is not a video. If you need more than one beat, that is `prim.video`.
+
+---
+
+## 6. Validator
+
+`python3 validate.py <pack>`
+
+Hard fail: missing `scene.json`, missing required keys, non-increasing camera times, last key ≠ duration, type times out of range.
+
+Warning: `renderer.html` present but `window.__duration` disagrees with `scene.json` (v0.1 dual-authority debt).
