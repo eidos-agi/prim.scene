@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Eidos Video</title>
-  <meta name="description" content="Eidos Video stores the shot. Recapture it when the renderer improves. No new inference.">
+  <meta name="description" content="Write a scene file. Capture it. Change one field. Capture again. The mp4 is a view, not a prompt.">
   <meta name="theme-color" content="#161210">
   <meta name="color-scheme" content="dark">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="player">
   <link rel="stylesheet" href="./brand.css">
   <link rel="stylesheet" href="./volta.css">
-  <link rel="stylesheet" href="./video.css?v=8">
+  <link rel="stylesheet" href="./video.css?v=9">
 </head>
 <body class="reel">
   <header class="rail" id="rail">
@@ -31,36 +31,38 @@
       <span class="wm">Eidos Video</span>
     </a>
     <nav class="rail-links" aria-label="Chapters">
-      <a href="#v6">v6</a>
+      <a href="#v6">Play</a>
       <a href="#proof">Recapture</a>
+      <a href="#make">Make</a>
       <a href="#s1">Aim</a>
       <a href="#s2">Hands</a>
       <a href="#s3">Mind</a>
       <a href="#s4">Sand</a>
       <a href="#s5">Skater</a>
       <a href="#s6">Mark</a>
-      <a href="#prims">Process</a>
+      <a href="#prims">Store</a>
     </nav>
     <span class="stamp">reusable</span>
   </header>
 
   <nav class="dots" aria-label="Section progress">
-    <a href="#v6" data-chapter="v6" title="ident-v6"></a>
+    <a href="#v6" data-chapter="v6" title="Play"></a>
     <a href="#proof" data-chapter="proof" title="Recapture"></a>
+    <a href="#make" data-chapter="make" title="Make"></a>
     <a href="#s1" data-chapter="s1" title="Aim"></a>
     <a href="#s2" data-chapter="s2" title="Hands"></a>
     <a href="#s3" data-chapter="s3" title="Mind"></a>
     <a href="#s4" data-chapter="s4" title="Sand"></a>
     <a href="#s5" data-chapter="s5" title="Skater"></a>
     <a href="#s6" data-chapter="s6" title="Mark"></a>
-    <a href="#prims" data-chapter="prims" title="Process"></a>
+    <a href="#prims" data-chapter="prims" title="Store"></a>
   </nav>
 
   <section class="chapter film" id="v6" data-chapter="v6">
     <div class="inner">
-      <p class="kicker reveal">Eidos Video</p>
-      <h1 class="reveal d1">ident-v6<span class="stop">.</span></h1>
-      <p class="lede reveal d2">Same scene. Recapture. No inference.</p>
+      <p class="kicker reveal">ident-v6 · 16 seconds</p>
+      <h1 class="reveal d1">Keep the shot<span class="stop">.</span></h1>
+      <p class="lede reveal d2">This clip is a render of a scene file. You can change the file and capture it again. An AI-generated clip will not let you do that.</p>
       <div class="stage reveal d3">
         <video id="ident" playsinline webkit-playsinline preload="metadata" poster="./poster-v6.jpg?v=2" width="1920" height="1080">
           <source src="./ident-v6.mp4?v=2" type="video/mp4">
@@ -76,19 +78,40 @@
   <section class="chapter" id="proof" data-chapter="proof">
     <div class="glow" aria-hidden="true"></div>
     <div class="inner">
-      <p class="kicker reveal">Same scene.json</p>
-      <h2 class="reveal d1">Type came off<span class="stop">.</span></h2>
-      <p class="lede reveal d2">The camera did not move. No new prompt. Recapture, not another generate.</p>
+      <p class="kicker reveal">What recapture means</p>
+      <h2 class="reveal d1">We emptied type<span class="stop">.</span></h2>
+      <p class="lede reveal d2">Same camera. Same objects. In <code>scene.json</code>, <code>type</code> went from two title overlays to <code>[]</code>. Then we ran capture again. That is a recapture: a new render of the same scene, not a new generate.</p>
       <div class="pair reveal d3">
         <figure>
-          <img src="./stills/before.jpg" alt="First capture of the mark, with type burned in" width="1920" height="1080">
-          <figcaption>First capture</figcaption>
+          <img src="./stills/before.jpg" alt="Mark with Eidos AGI titles burned in" width="1920" height="1080">
+          <figcaption>type on</figcaption>
         </figure>
         <figure>
-          <img src="./stills/after.jpg" alt="Recapture of the same mark, type off" width="1920" height="1080">
-          <figcaption>Recapture</figcaption>
+          <img src="./stills/after.jpg" alt="Same mark, titles removed" width="1920" height="1080">
+          <figcaption>type off</figcaption>
         </figure>
       </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="make" data-chapter="make">
+    <div class="inner">
+      <p class="kicker reveal">Make your own</p>
+      <h2 class="reveal d1">Four steps<span class="stop">.</span></h2>
+      <p class="lede reveal d2">A scene pack is a folder with <code>scene.json</code> and <code>renderer.html</code>. Capture is a tool in <a href="https://github.com/eidos-agi/video-3d-forge">video-3d-forge</a>, not a prim. Needs Chrome, Playwright, and ffmpeg.</p>
+      <ol class="steps reveal d3">
+        <li><strong>Write</strong> camera, objects, and duration in <code>scene.json</code>. This ident lives at <a href="https://github.com/eidos-agi/prim.scene/tree/main/examples/eidos-ident">prim.scene/examples/eidos-ident</a>.</li>
+        <li><strong>Capture</strong> frames, then assemble. From <code>video-3d-forge</code>:</li>
+      </ol>
+      <pre class="receipt reveal d3"><span class="prompt">$</span> NODE_PATH=$(npm root -g) node bin/capture.mjs ../prim.scene/examples/eidos-ident
+<span class="prompt">$</span> python3 bin/video-3d-forge assemble ../prim.video/examples/eidos-ident</pre>
+      <ol class="steps continue reveal d3" start="3">
+        <li><strong>Change one field.</strong> We set <code>type</code> to <code>[]</code> so the titles dropped.</li>
+        <li><strong>Capture again.</strong> Same command. That is the recapture.</li>
+      </ol>
+      <pre class="receipt reveal d3">{
+  "type": []
+}</pre>
     </div>
   </section>
 
@@ -144,29 +167,25 @@
   <section class="chapter" id="prims" data-chapter="prims">
     <div class="glow" aria-hidden="true"></div>
     <div class="inner">
-      <p class="kicker reveal">The process</p>
-      <h2 class="reveal d1">The shot is a prim<span class="stop">.</span></h2>
-      <p class="lede reveal d2">AI-generated video spends inference on pixels you cannot steer. Eidos Video stores the scene. Change the camera. Only the render recalculates.</p>
+      <p class="kicker reveal">The store</p>
+      <h2 class="reveal d1">Files, then a tool<span class="stop">.</span></h2>
+      <p class="lede reveal d2">A prim is the file. Capture is a forge that reads it. Start with the scene pack. The rest is optional.</p>
       <div class="prims reveal d3">
         <div class="prim">
-          <a class="who" href="https://github.com/eidos-agi/prim.scene">prim.scene</a>
-          <p class="why">Camera, objects, duration. Steer here. Recapture when the renderer improves.</p>
+          <a class="who" href="https://github.com/eidos-agi/prim.scene/tree/main/examples/eidos-ident">1 · prim.scene</a>
+          <p class="why">Start here. Camera, objects, duration. Authority is <code>scene.json</code>.</p>
         </div>
         <div class="prim">
-          <a class="who" href="https://github.com/eidos-agi/prim.video">prim.video</a>
-          <p class="why">Scene order, cited. The ident is a list, not a baked clip.</p>
+          <a class="who" href="https://github.com/eidos-agi/video-3d-forge">2 · video-3d-forge</a>
+          <p class="why">Capture and assemble. Not a prim. Writes frames, then an mp4.</p>
         </div>
         <div class="prim">
-          <span class="who">prim.obf</span>
-          <p class="why">Six mute beats. The story stays a book you can retell.</p>
+          <a class="who" href="https://github.com/eidos-agi/prim.video">3 · prim.video</a>
+          <p class="why">Later: an ordered list of scenes. Do not copy cameras into it.</p>
         </div>
         <div class="prim">
-          <a class="who" href="https://github.com/eidos-agi/prim.opf">prim.opf</a>
-          <p class="why">This player as a product graph.</p>
-        </div>
-        <div class="prim">
-          <a class="who" href="https://github.com/eidos-agi/prim.docket">prim.docket</a>
-          <p class="why">The board that planned the site.</p>
+          <span class="who">Then</span>
+          <p class="why"><a href="https://github.com/eidos-agi/prim.opf">prim.opf</a> is the product graph. <a href="https://github.com/eidos-agi/prim.docket">prim.docket</a> is the board. prim.obf is the mute picture-book (private repo).</p>
         </div>
       </div>
     </div>
@@ -178,9 +197,9 @@
       <span>
         <a href="https://volta.eidosagi.com">volta</a>
         ·
-        <a href="https://shipr.eidosagi.com">shipr</a>
+        <a href="https://github.com/eidos-agi/prim.scene">prim.scene</a>
         ·
-        <a href="https://eidosagi.com">eidosagi.com</a>
+        <a href="https://github.com/eidos-agi/video-3d-forge">video-3d-forge</a>
       </span>
     </div>
   </footer>

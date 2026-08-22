@@ -100,7 +100,7 @@
       "type": "outcome",
       "title": "A stranger can write, capture, tweak, recapture",
       "status": "blocked",
-      "description": "After one scroll they can name the steps and run the real capture command. LOOK-0006: fail.",
+      "description": "Make chapter names the steps and the real capture command. Still blocked until total 80 or a stranger actually captures.",
       "provenance": {"by": "agent:grok", "method": "LOOK-0006 maker onramp"}
     },
     {
@@ -155,25 +155,25 @@
       "type": "proof",
       "title": "North star acceptance, scored",
       "status": "active",
-      "description": "55/100 on 2026-08-22. Pass bar 80, with maker-path criteria 8 and 9 at least 7.",
+      "description": "78/100 after maker chapter. Pass bar 80. Criteria 8 and 9 clear 7. Total still short.",
       "content": "content/acceptance.md",
       "score": {
-        "total": 55,
+        "total": 78,
         "max": 100,
-        "at": "2026-08-22T22:30:00Z",
+        "at": "2026-08-22T23:15:00Z",
         "pass": 80,
         "by": "agent:grok",
-        "method": "Ten criteria, 0-10. Live site + LOOK-0006. Not CONFIRMED.",
+        "method": "Rescore after Make chapter with real video-3d-forge commands.",
         "criteria": [
-          {"id": "scene-is-store", "title": "Scene file is the store; mp4 is a view", "points": 7, "max": 10},
+          {"id": "scene-is-store", "title": "Scene file is the store; mp4 is a view", "points": 8, "max": 10},
           {"id": "tweak-is-recapture", "title": "Named tweak is recapture, not generate", "points": 8, "max": 10},
           {"id": "recreate-image", "title": "Same image from the scene", "points": 8, "max": 10},
           {"id": "later-renderer", "title": "Later renderer, no new inference, demonstrated", "points": 5, "max": 10},
-          {"id": "story-is-reuse", "title": "Public story is reuse, not Imagine cheapness", "points": 6, "max": 10},
+          {"id": "story-is-reuse", "title": "Public story is reuse, not Imagine cheapness", "points": 8, "max": 10},
           {"id": "film-then-receipt", "title": "Film first, recapture receipt", "points": 8, "max": 10},
-          {"id": "cold-viewer", "title": "Cold viewer can say what Eidos Video is", "points": 3, "max": 10},
-          {"id": "cold-maker", "title": "Cold maker can name write-capture-tweak-recapture", "points": 1, "max": 10},
-          {"id": "real-capture-cmd", "title": "Real capture command on the public face", "points": 0, "max": 10},
+          {"id": "cold-viewer", "title": "Cold viewer can say what Eidos Video is", "points": 7, "max": 10},
+          {"id": "cold-maker", "title": "Cold maker can name write-capture-tweak-recapture", "points": 8, "max": 10},
+          {"id": "real-capture-cmd", "title": "Real capture command on the public face", "points": 9, "max": 10},
           {"id": "live-mute-ident", "title": "Live ident plays; no type in the film", "points": 9, "max": 10}
         ]
       },
@@ -200,7 +200,7 @@
       "type": "gap",
       "title": "Public page does not teach write, capture, recapture",
       "status": "active",
-      "description": "No scene fragment, no real capture command, prims unordered. Blocks maker-can-try until criteria 8 and 9 clear 7.",
+      "description": "Steps and real commands are on the page. Gap remains until a cold checkout capture or a second renderer generation lifts total to 80.",
       "provenance": {"by": "agent:grok", "method": "LOOK-0006 debate"}
     }
   ],
@@ -281,6 +281,7 @@
     {"id": "opf:eidos-video:event:gap-created", "type": "created", "at": "2026-08-22T22:30:15Z", "subjects": ["opf:eidos-video:gap:maker-onramp"], "detail": "Created maker-onramp gap"},
     {"id": "opf:eidos-video:event:decision-accepted", "type": "accepted", "at": "2026-08-22T22:31:00Z", "subjects": ["opf:eidos-video:decision:reusable-scene"], "actor": "human:daniel", "detail": "Daniel set the north star: reusable scene video, scored acceptance, not Imagine cheapness"},
     {"id": "opf:eidos-video:event:intent-updated", "type": "updated", "at": "2026-08-22T22:31:01Z", "subjects": ["opf:eidos-video:intent", "opf:eidos-video:product"], "detail": "Intent is keep-the-shot; product titled Eidos Video"},
-    {"id": "opf:eidos-video:event:score-observed", "type": "observed", "at": "2026-08-22T22:31:02Z", "subjects": ["opf:eidos-video:proof:north-star"], "detail": "Scored 55/100. Pass bar 80. Maker path 1 and 0."}
+    {"id": "opf:eidos-video:event:score-observed", "type": "observed", "at": "2026-08-22T22:31:02Z", "subjects": ["opf:eidos-video:proof:north-star"], "detail": "Scored 55/100. Pass bar 80. Maker path 1 and 0."},
+    {"id": "opf:eidos-video:event:score-rescore", "type": "observed", "at": "2026-08-22T23:15:00Z", "subjects": ["opf:eidos-video:proof:north-star"], "detail": "Rescored 78/100 after Make chapter with real capture.mjs commands."}
   ]
 }
