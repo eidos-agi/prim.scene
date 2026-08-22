@@ -8,7 +8,7 @@
       "type": "product",
       "title": "video.eidosagi.com",
       "status": "operating",
-      "description": "Public ident and anthem player on Hostkey. Volta-style chapter scroll.",
+      "description": "Eidos Video: reusable scene video versus one-shot AI clips. Hostkey, volta scroll.",
       "provenance": {"by": "agent:grok", "method": "Daniel asked to ship ident-v6 plus scenes like volta.eidosagi.com"}
     },
     {
@@ -21,9 +21,9 @@
     {
       "id": "opf:eidos-video:intent",
       "type": "intent",
-      "title": "Show the ident, the reprint math, and the scenes without a fourth stack",
+      "title": "Eidos Video is reusable scene video: steer, tweak, recapture, enhance later without inference",
       "status": "active",
-      "provenance": {"by": "agent:grok", "method": "chat 2026-08-22"}
+      "provenance": {"by": "agent:grok", "method": "Daniel 2026-08-22: AI clips have no steering; Eidos Video recaptures as renderers improve"}
     },
     {
       "id": "opf:eidos-video:area:experience",
@@ -37,7 +37,7 @@
       "type": "surface",
       "title": "Public chapter-scroll site",
       "status": "operating",
-      "description": "Stats, ident-v6 player, six mute anthem scenes, then the five prims that store them. Mobile first.",
+      "description": "Product story, ident-v6 player, six mute scenes, process (prims). Mobile first.",
       "provenance": {"by": "agent:grok", "method": "volta.eidosagi.com scroll.js + Caddy on Hostkey"}
     },
     {
@@ -63,6 +63,7 @@
     {"id": "opf:eidos-video:event:intent-created", "type": "created", "at": "2026-08-22T19:20:02Z", "subjects": ["opf:eidos-video:intent"], "detail": "Created intent"},
     {"id": "opf:eidos-video:event:area-exp-created", "type": "created", "at": "2026-08-22T19:20:03Z", "subjects": ["opf:eidos-video:area:experience"], "detail": "Created experience area"},
     {"id": "opf:eidos-video:event:surface-created", "type": "created", "at": "2026-08-22T19:20:04Z", "subjects": ["opf:eidos-video:surface:site"], "detail": "Created site surface"},
-    {"id": "opf:eidos-video:event:work-created", "type": "created", "at": "2026-08-22T19:20:05Z", "subjects": ["opf:eidos-video:work:ship"], "detail": "Created Hostkey ship work"}
+    {"id": "opf:eidos-video:event:work-created", "type": "created", "at": "2026-08-22T19:20:05Z", "subjects": ["opf:eidos-video:work:ship"], "detail": "Created Hostkey ship work"},
+    {"id": "opf:eidos-video:event:intent-updated", "type": "updated", "at": "2026-08-22T21:10:00Z", "subjects": ["opf:eidos-video:intent"], "detail": "Product story is reusable Eidos Video versus AI-generated clips"}
   ]
 }
