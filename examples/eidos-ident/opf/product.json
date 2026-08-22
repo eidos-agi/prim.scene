@@ -6,56 +6,256 @@
     {
       "id": "opf:eidos-video:product",
       "type": "product",
-      "title": "video.eidosagi.com",
+      "title": "Eidos Video",
       "status": "operating",
-      "description": "Eidos Video: reusable scene video versus one-shot AI clips. Hostkey, volta scroll.",
-      "provenance": {"by": "agent:grok", "method": "Daniel asked to ship ident-v6 plus scenes like volta.eidosagi.com"}
+      "description": "Process for making videos as scenes you can steer, recapture, and enhance later without another inference pass. Public face: video.eidosagi.com.",
+      "provenance": {"by": "agent:grok", "method": "Daniel 2026-08-22: set north star in OPF — reusable scene video, not unique paint"}
     },
     {
       "id": "opf:eidos-video:area:intent",
       "type": "area",
       "title": "Intent",
       "status": "active",
-      "provenance": {"by": "agent:grok", "method": "OPF v1 required intent area"}
-    },
-    {
-      "id": "opf:eidos-video:intent",
-      "type": "intent",
-      "title": "Eidos Video is reusable scene video: steer, tweak, recapture, enhance later without inference",
-      "status": "active",
-      "provenance": {"by": "agent:grok", "method": "Daniel 2026-08-22: AI clips have no steering; Eidos Video recaptures as renderers improve"}
+      "provenance": {"by": "agent:grok", "method": "OPF v1 intent area"}
     },
     {
       "id": "opf:eidos-video:area:experience",
       "type": "area",
       "title": "Experience",
       "status": "active",
-      "provenance": {"by": "agent:grok", "method": "OPF v1 required experience area"}
+      "provenance": {"by": "agent:grok", "method": "OPF v1 experience area"}
+    },
+    {
+      "id": "opf:eidos-video:area:governance",
+      "type": "area",
+      "title": "Decisions",
+      "status": "active",
+      "provenance": {"by": "agent:grok", "method": "North star is a decision, not a slogan"}
+    },
+    {
+      "id": "opf:eidos-video:area:assurance",
+      "type": "area",
+      "title": "Evidence and proof",
+      "status": "active",
+      "provenance": {"by": "agent:grok", "method": "Scored acceptance lives here"}
+    },
+    {
+      "id": "opf:eidos-video:area:gaps",
+      "type": "area",
+      "title": "Gaps",
+      "status": "active",
+      "provenance": {"by": "agent:grok", "method": "LOOK-0006 maker onramp is a gap"}
+    },
+    {
+      "id": "opf:eidos-video:intent",
+      "type": "intent",
+      "title": "Keep the shot: reusable scene video, not one-shot generate",
+      "status": "active",
+      "description": "The mp4 is a view of a scene file. Steer, tweak, recapture. When renderers improve, enhance without inference. Unique paint from a generate is the thing we refuse to be.",
+      "content": "content/north-star.md",
+      "provenance": {"by": "human:daniel", "method": "Chat 2026-08-22: Eidos Video is re-usable; AI clips have no steering and cannot recreate the image"}
+    },
+    {
+      "id": "opf:eidos-video:user:viewer",
+      "type": "user",
+      "title": "Cold viewer",
+      "status": "active",
+      "description": "Someone who opens video.eidosagi.com and should leave knowing this is a scene you can keep, not a prompt you cannot land.",
+      "provenance": {"by": "agent:grok", "method": "North star users"}
+    },
+    {
+      "id": "opf:eidos-video:user:maker",
+      "type": "user",
+      "title": "Maker",
+      "status": "active",
+      "description": "Someone who wants to make their own Eidos Video: write a scene, capture, change one field, recapture.",
+      "provenance": {"by": "agent:grok", "method": "Daniel: assess as someone learning to make their own videos"}
+    },
+    {
+      "id": "opf:eidos-video:problem:one-shot-generate",
+      "type": "problem",
+      "title": "AI-generated video cannot be steered or recreated",
+      "status": "active",
+      "description": "No controls, no steering, no slight tweak you can prompt, no same image twice. Unique paint. You lose the shot.",
+      "provenance": {"by": "human:daniel", "method": "Product story 2026-08-22"}
+    },
+    {
+      "id": "opf:eidos-video:promise:scene-is-the-shot",
+      "type": "promise",
+      "title": "The scene file is the shot; recapture is not inference",
+      "status": "active",
+      "description": "prim.scene holds camera, objects, duration. video-3d-forge captures. A tweak is a recapture of that file. Later renderers reuse it.",
+      "provenance": {"by": "agent:grok", "method": "North star promise from Daniel's reuse claim"}
+    },
+    {
+      "id": "opf:eidos-video:outcome:keep-the-shot",
+      "type": "outcome",
+      "title": "A viewer sees a shot that can be recaptured without a new generate",
+      "status": "active",
+      "description": "Live ident plus a same-scene recapture receipt. Type-off pair is the current proof object.",
+      "provenance": {"by": "agent:grok", "method": "Falsifiable reuse outcome"}
+    },
+    {
+      "id": "opf:eidos-video:outcome:maker-can-try",
+      "type": "outcome",
+      "title": "A stranger can write, capture, tweak, recapture",
+      "status": "blocked",
+      "description": "After one scroll they can name the steps and run the real capture command. LOOK-0006: fail.",
+      "provenance": {"by": "agent:grok", "method": "LOOK-0006 maker onramp"}
     },
     {
       "id": "opf:eidos-video:surface:site",
       "type": "surface",
-      "title": "Public chapter-scroll site",
+      "title": "video.eidosagi.com",
       "status": "operating",
-      "description": "Film first, recapture receipt, six mute scenes, process. Mobile first.",
-      "provenance": {"by": "agent:grok", "method": "volta.eidosagi.com scroll.js + Caddy on Hostkey"}
+      "description": "Film first, recapture receipt, mute scenes, process. Hostkey Caddy.",
+      "provenance": {"by": "agent:grok", "method": "volta scroll on Hostkey"}
     },
     {
       "id": "opf:eidos-video:work:ship",
       "type": "work",
-      "title": "Ship the player on Hostkey",
+      "title": "Ship the public reel",
       "status": "operating",
-      "provenance": {"by": "agent:grok", "method": "same path as shipr.eidosagi.com"}
+      "provenance": {"by": "agent:grok", "method": "rsync to Hostkey like shipr"}
+    },
+    {
+      "id": "opf:eidos-video:authority:daniel",
+      "type": "authority",
+      "title": "Daniel",
+      "status": "active",
+      "provenance": {"by": "agent:grok", "method": "Product owner of Eidos Video"}
+    },
+    {
+      "id": "opf:eidos-video:decision:reusable-scene",
+      "type": "decision",
+      "title": "North star is reusable scene video, not reprint math and not a jargon trailer",
+      "status": "active",
+      "description": "Keep the shot. Score the public face against that. Do not lead with 160,000× Imagine cheapness.",
+      "rationale": {
+        "why": "AI clips cannot steer or recreate. Eidos Video's only durable advantage is the scene file.",
+        "problems": ["opf:eidos-video:problem:one-shot-generate"],
+        "alternatives": [
+          {
+            "option": "Market as cheaper than Imagine (160,000× / $0.0005)",
+            "disposition": "ruled-out",
+            "reason": "That is a bill comparison. The product is flexibility."
+          },
+          {
+            "option": "Figure-shaped film with no recipe",
+            "disposition": "partial",
+            "reason": "Film-first is right for viewers. Makers still need write-capture-recapture."
+          }
+        ],
+        "revisit_when": ["A cold maker completes recapture from the public page.", "A second renderer generation is shown on the same scene."]
+      },
+      "provenance": {"by": "human:daniel", "method": "Asked to set the OPF north star about what it is really about"}
+    },
+    {
+      "id": "opf:eidos-video:proof:north-star",
+      "type": "proof",
+      "title": "North star acceptance, scored",
+      "status": "active",
+      "description": "55/100 on 2026-08-22. Pass bar 80, with maker-path criteria 8 and 9 at least 7.",
+      "content": "content/acceptance.md",
+      "score": {
+        "total": 55,
+        "max": 100,
+        "at": "2026-08-22T22:30:00Z",
+        "pass": 80,
+        "by": "agent:grok",
+        "method": "Ten criteria, 0-10. Live site + LOOK-0006. Not CONFIRMED.",
+        "criteria": [
+          {"id": "scene-is-store", "title": "Scene file is the store; mp4 is a view", "points": 7, "max": 10},
+          {"id": "tweak-is-recapture", "title": "Named tweak is recapture, not generate", "points": 8, "max": 10},
+          {"id": "recreate-image", "title": "Same image from the scene", "points": 8, "max": 10},
+          {"id": "later-renderer", "title": "Later renderer, no new inference, demonstrated", "points": 5, "max": 10},
+          {"id": "story-is-reuse", "title": "Public story is reuse, not Imagine cheapness", "points": 6, "max": 10},
+          {"id": "film-then-receipt", "title": "Film first, recapture receipt", "points": 8, "max": 10},
+          {"id": "cold-viewer", "title": "Cold viewer can say what Eidos Video is", "points": 3, "max": 10},
+          {"id": "cold-maker", "title": "Cold maker can name write-capture-tweak-recapture", "points": 1, "max": 10},
+          {"id": "real-capture-cmd", "title": "Real capture command on the public face", "points": 0, "max": 10},
+          {"id": "live-mute-ident", "title": "Live ident plays; no type in the film", "points": 9, "max": 10}
+        ]
+      },
+      "provenance": {"by": "agent:grok", "method": "LOOK-0006 + live Hostkey proof 2026-08-22"}
+    },
+    {
+      "id": "opf:eidos-video:evidence:recapture-pair",
+      "type": "evidence",
+      "title": "Type-off recapture pair",
+      "status": "active",
+      "description": "site/stills/before.jpg (type on) vs after.jpg (type off). Same three orbs. Camera did not move.",
+      "provenance": {"by": "agent:grok", "method": "Desktop ident-v6 vs mute recapture frames/00465.jpg"}
+    },
+    {
+      "id": "opf:eidos-video:evidence:look-0006",
+      "type": "evidence",
+      "title": "LOOK-0006 maker onramp",
+      "status": "active",
+      "description": "secondlook ux/socratic/simplicity. Cold maker cannot name the steps. Process is a repo inventory. video-3d-forge missing from the page.",
+      "provenance": {"by": "agent:grok", "method": "secondlook-md LOOK-0006 on prim.scene/examples/eidos-ident"}
+    },
+    {
+      "id": "opf:eidos-video:gap:maker-onramp",
+      "type": "gap",
+      "title": "Public page does not teach write, capture, recapture",
+      "status": "active",
+      "description": "No scene fragment, no real capture command, prims unordered. Blocks maker-can-try until criteria 8 and 9 clear 7.",
+      "provenance": {"by": "agent:grok", "method": "LOOK-0006 debate"}
     }
   ],
   "relationships": [
-    {"id": "opf:eidos-video:rel:root-intent-area", "type": "contains", "from": "opf:eidos-video:product", "to": "opf:eidos-video:area:intent", "order": 0},
-    {"id": "opf:eidos-video:rel:root-exp-area", "type": "contains", "from": "opf:eidos-video:product", "to": "opf:eidos-video:area:experience", "order": 1},
-    {"id": "opf:eidos-video:rel:intent", "type": "contains", "from": "opf:eidos-video:area:intent", "to": "opf:eidos-video:intent", "order": 0},
-    {"id": "opf:eidos-video:rel:surface", "type": "contains", "from": "opf:eidos-video:area:experience", "to": "opf:eidos-video:surface:site", "order": 0},
-    {"id": "opf:eidos-video:rel:work", "type": "contains", "from": "opf:eidos-video:area:experience", "to": "opf:eidos-video:work:ship", "order": 1},
+    {"id": "opf:eidos-video:rel:root-intent", "type": "contains", "from": "opf:eidos-video:product", "to": "opf:eidos-video:area:intent", "order": 0},
+    {"id": "opf:eidos-video:rel:root-exp", "type": "contains", "from": "opf:eidos-video:product", "to": "opf:eidos-video:area:experience", "order": 1},
+    {"id": "opf:eidos-video:rel:root-gov", "type": "contains", "from": "opf:eidos-video:product", "to": "opf:eidos-video:area:governance", "order": 2},
+    {"id": "opf:eidos-video:rel:root-assur", "type": "contains", "from": "opf:eidos-video:product", "to": "opf:eidos-video:area:assurance", "order": 3},
+    {"id": "opf:eidos-video:rel:root-gaps", "type": "contains", "from": "opf:eidos-video:product", "to": "opf:eidos-video:area:gaps", "order": 4},
+
+    {"id": "opf:eidos-video:rel:c-intent", "type": "contains", "from": "opf:eidos-video:area:intent", "to": "opf:eidos-video:intent", "order": 0},
+    {"id": "opf:eidos-video:rel:c-viewer", "type": "contains", "from": "opf:eidos-video:area:intent", "to": "opf:eidos-video:user:viewer", "order": 1},
+    {"id": "opf:eidos-video:rel:c-maker", "type": "contains", "from": "opf:eidos-video:area:intent", "to": "opf:eidos-video:user:maker", "order": 2},
+    {"id": "opf:eidos-video:rel:c-problem", "type": "contains", "from": "opf:eidos-video:area:intent", "to": "opf:eidos-video:problem:one-shot-generate", "order": 3},
+    {"id": "opf:eidos-video:rel:c-promise", "type": "contains", "from": "opf:eidos-video:area:intent", "to": "opf:eidos-video:promise:scene-is-the-shot", "order": 4},
+    {"id": "opf:eidos-video:rel:c-out-keep", "type": "contains", "from": "opf:eidos-video:area:intent", "to": "opf:eidos-video:outcome:keep-the-shot", "order": 5},
+    {"id": "opf:eidos-video:rel:c-out-maker", "type": "contains", "from": "opf:eidos-video:area:intent", "to": "opf:eidos-video:outcome:maker-can-try", "order": 6},
+
+    {"id": "opf:eidos-video:rel:c-surface", "type": "contains", "from": "opf:eidos-video:area:experience", "to": "opf:eidos-video:surface:site", "order": 0},
+    {"id": "opf:eidos-video:rel:c-work", "type": "contains", "from": "opf:eidos-video:area:experience", "to": "opf:eidos-video:work:ship", "order": 1},
+
+    {"id": "opf:eidos-video:rel:c-authority", "type": "contains", "from": "opf:eidos-video:area:governance", "to": "opf:eidos-video:authority:daniel", "order": 0},
+    {"id": "opf:eidos-video:rel:c-decision", "type": "contains", "from": "opf:eidos-video:area:governance", "to": "opf:eidos-video:decision:reusable-scene", "order": 1},
+
+    {"id": "opf:eidos-video:rel:c-proof", "type": "contains", "from": "opf:eidos-video:area:assurance", "to": "opf:eidos-video:proof:north-star", "order": 0},
+    {"id": "opf:eidos-video:rel:c-ev-pair", "type": "contains", "from": "opf:eidos-video:area:assurance", "to": "opf:eidos-video:evidence:recapture-pair", "order": 1},
+    {"id": "opf:eidos-video:rel:c-ev-look", "type": "contains", "from": "opf:eidos-video:area:assurance", "to": "opf:eidos-video:evidence:look-0006", "order": 2},
+
+    {"id": "opf:eidos-video:rel:c-gap", "type": "contains", "from": "opf:eidos-video:area:gaps", "to": "opf:eidos-video:gap:maker-onramp", "order": 0},
+
     {"id": "opf:eidos-video:rel:expresses", "type": "expresses", "from": "opf:eidos-video:product", "to": "opf:eidos-video:intent"},
-    {"id": "opf:eidos-video:rel:implements", "type": "implements", "from": "opf:eidos-video:work:ship", "to": "opf:eidos-video:surface:site"}
+    {"id": "opf:eidos-video:rel:problem-viewer", "type": "for-user", "from": "opf:eidos-video:problem:one-shot-generate", "to": "opf:eidos-video:user:viewer"},
+    {"id": "opf:eidos-video:rel:problem-maker", "type": "for-user", "from": "opf:eidos-video:problem:one-shot-generate", "to": "opf:eidos-video:user:maker"},
+    {"id": "opf:eidos-video:rel:promise-viewer", "type": "for-user", "from": "opf:eidos-video:promise:scene-is-the-shot", "to": "opf:eidos-video:user:viewer"},
+    {"id": "opf:eidos-video:rel:promise-maker", "type": "for-user", "from": "opf:eidos-video:promise:scene-is-the-shot", "to": "opf:eidos-video:user:maker"},
+    {"id": "opf:eidos-video:rel:out-keep-viewer", "type": "for-user", "from": "opf:eidos-video:outcome:keep-the-shot", "to": "opf:eidos-video:user:viewer"},
+    {"id": "opf:eidos-video:rel:out-maker-user", "type": "for-user", "from": "opf:eidos-video:outcome:maker-can-try", "to": "opf:eidos-video:user:maker"},
+    {"id": "opf:eidos-video:rel:addresses", "type": "addresses", "from": "opf:eidos-video:promise:scene-is-the-shot", "to": "opf:eidos-video:problem:one-shot-generate"},
+    {"id": "opf:eidos-video:rel:promise-serves-keep", "type": "serves", "from": "opf:eidos-video:promise:scene-is-the-shot", "to": "opf:eidos-video:outcome:keep-the-shot"},
+    {"id": "opf:eidos-video:rel:promise-serves-maker", "type": "serves", "from": "opf:eidos-video:promise:scene-is-the-shot", "to": "opf:eidos-video:outcome:maker-can-try"},
+    {"id": "opf:eidos-video:rel:site-serves-keep", "type": "serves", "from": "opf:eidos-video:surface:site", "to": "opf:eidos-video:outcome:keep-the-shot"},
+    {"id": "opf:eidos-video:rel:site-serves-maker", "type": "serves", "from": "opf:eidos-video:surface:site", "to": "opf:eidos-video:outcome:maker-can-try"},
+    {"id": "opf:eidos-video:rel:work-implements-site", "type": "implements", "from": "opf:eidos-video:work:ship", "to": "opf:eidos-video:surface:site"},
+    {"id": "opf:eidos-video:rel:work-implements-promise", "type": "implements", "from": "opf:eidos-video:work:ship", "to": "opf:eidos-video:promise:scene-is-the-shot"},
+    {"id": "opf:eidos-video:rel:decides-intent", "type": "decides", "from": "opf:eidos-video:decision:reusable-scene", "to": "opf:eidos-video:intent"},
+    {"id": "opf:eidos-video:rel:gov-intent", "type": "governed-by", "from": "opf:eidos-video:intent", "to": "opf:eidos-video:authority:daniel"},
+    {"id": "opf:eidos-video:rel:gov-promise", "type": "governed-by", "from": "opf:eidos-video:promise:scene-is-the-shot", "to": "opf:eidos-video:authority:daniel"},
+    {"id": "opf:eidos-video:rel:gov-decision", "type": "governed-by", "from": "opf:eidos-video:decision:reusable-scene", "to": "opf:eidos-video:authority:daniel"},
+    {"id": "opf:eidos-video:rel:intent-verified", "type": "verified-by", "from": "opf:eidos-video:intent", "to": "opf:eidos-video:proof:north-star"},
+    {"id": "opf:eidos-video:rel:promise-verified", "type": "verified-by", "from": "opf:eidos-video:promise:scene-is-the-shot", "to": "opf:eidos-video:proof:north-star"},
+    {"id": "opf:eidos-video:rel:keep-verified", "type": "verified-by", "from": "opf:eidos-video:outcome:keep-the-shot", "to": "opf:eidos-video:proof:north-star"},
+    {"id": "opf:eidos-video:rel:maker-verified", "type": "verified-by", "from": "opf:eidos-video:outcome:maker-can-try", "to": "opf:eidos-video:proof:north-star"},
+    {"id": "opf:eidos-video:rel:proof-pair", "type": "supported-by", "from": "opf:eidos-video:proof:north-star", "to": "opf:eidos-video:evidence:recapture-pair"},
+    {"id": "opf:eidos-video:rel:proof-look", "type": "supported-by", "from": "opf:eidos-video:proof:north-star", "to": "opf:eidos-video:evidence:look-0006"},
+    {"id": "opf:eidos-video:rel:gap-blocks-maker", "type": "blocks", "from": "opf:eidos-video:gap:maker-onramp", "to": "opf:eidos-video:outcome:maker-can-try"}
   ],
   "events": [
     {"id": "opf:eidos-video:event:product-created", "type": "created", "at": "2026-08-22T19:20:00Z", "subjects": ["opf:eidos-video:product"], "detail": "Created product"},
@@ -64,6 +264,23 @@
     {"id": "opf:eidos-video:event:area-exp-created", "type": "created", "at": "2026-08-22T19:20:03Z", "subjects": ["opf:eidos-video:area:experience"], "detail": "Created experience area"},
     {"id": "opf:eidos-video:event:surface-created", "type": "created", "at": "2026-08-22T19:20:04Z", "subjects": ["opf:eidos-video:surface:site"], "detail": "Created site surface"},
     {"id": "opf:eidos-video:event:work-created", "type": "created", "at": "2026-08-22T19:20:05Z", "subjects": ["opf:eidos-video:work:ship"], "detail": "Created Hostkey ship work"},
-    {"id": "opf:eidos-video:event:intent-updated", "type": "updated", "at": "2026-08-22T21:10:00Z", "subjects": ["opf:eidos-video:intent"], "detail": "Product story is reusable Eidos Video versus AI-generated clips"}
+    {"id": "opf:eidos-video:event:area-gov-created", "type": "created", "at": "2026-08-22T22:30:01Z", "subjects": ["opf:eidos-video:area:governance"], "detail": "Created governance area"},
+    {"id": "opf:eidos-video:event:area-assur-created", "type": "created", "at": "2026-08-22T22:30:02Z", "subjects": ["opf:eidos-video:area:assurance"], "detail": "Created assurance area"},
+    {"id": "opf:eidos-video:event:area-gaps-created", "type": "created", "at": "2026-08-22T22:30:03Z", "subjects": ["opf:eidos-video:area:gaps"], "detail": "Created gaps area"},
+    {"id": "opf:eidos-video:event:viewer-created", "type": "created", "at": "2026-08-22T22:30:04Z", "subjects": ["opf:eidos-video:user:viewer"], "detail": "Created viewer"},
+    {"id": "opf:eidos-video:event:maker-created", "type": "created", "at": "2026-08-22T22:30:05Z", "subjects": ["opf:eidos-video:user:maker"], "detail": "Created maker"},
+    {"id": "opf:eidos-video:event:problem-created", "type": "created", "at": "2026-08-22T22:30:06Z", "subjects": ["opf:eidos-video:problem:one-shot-generate"], "detail": "Created one-shot problem"},
+    {"id": "opf:eidos-video:event:promise-created", "type": "created", "at": "2026-08-22T22:30:07Z", "subjects": ["opf:eidos-video:promise:scene-is-the-shot"], "detail": "Created scene-is-the-shot promise"},
+    {"id": "opf:eidos-video:event:out-keep-created", "type": "created", "at": "2026-08-22T22:30:08Z", "subjects": ["opf:eidos-video:outcome:keep-the-shot"], "detail": "Created keep-the-shot outcome"},
+    {"id": "opf:eidos-video:event:out-maker-created", "type": "created", "at": "2026-08-22T22:30:09Z", "subjects": ["opf:eidos-video:outcome:maker-can-try"], "detail": "Created maker-can-try outcome"},
+    {"id": "opf:eidos-video:event:authority-created", "type": "created", "at": "2026-08-22T22:30:10Z", "subjects": ["opf:eidos-video:authority:daniel"], "detail": "Created authority"},
+    {"id": "opf:eidos-video:event:decision-created", "type": "created", "at": "2026-08-22T22:30:11Z", "subjects": ["opf:eidos-video:decision:reusable-scene"], "detail": "Created reusable-scene decision"},
+    {"id": "opf:eidos-video:event:proof-created", "type": "created", "at": "2026-08-22T22:30:12Z", "subjects": ["opf:eidos-video:proof:north-star"], "detail": "Created scored north-star proof"},
+    {"id": "opf:eidos-video:event:ev-pair-created", "type": "created", "at": "2026-08-22T22:30:13Z", "subjects": ["opf:eidos-video:evidence:recapture-pair"], "detail": "Created recapture-pair evidence"},
+    {"id": "opf:eidos-video:event:ev-look-created", "type": "created", "at": "2026-08-22T22:30:14Z", "subjects": ["opf:eidos-video:evidence:look-0006"], "detail": "Created LOOK-0006 evidence"},
+    {"id": "opf:eidos-video:event:gap-created", "type": "created", "at": "2026-08-22T22:30:15Z", "subjects": ["opf:eidos-video:gap:maker-onramp"], "detail": "Created maker-onramp gap"},
+    {"id": "opf:eidos-video:event:decision-accepted", "type": "accepted", "at": "2026-08-22T22:31:00Z", "subjects": ["opf:eidos-video:decision:reusable-scene"], "actor": "human:daniel", "detail": "Daniel set the north star: reusable scene video, scored acceptance, not Imagine cheapness"},
+    {"id": "opf:eidos-video:event:intent-updated", "type": "updated", "at": "2026-08-22T22:31:01Z", "subjects": ["opf:eidos-video:intent", "opf:eidos-video:product"], "detail": "Intent is keep-the-shot; product titled Eidos Video"},
+    {"id": "opf:eidos-video:event:score-observed", "type": "observed", "at": "2026-08-22T22:31:02Z", "subjects": ["opf:eidos-video:proof:north-star"], "detail": "Scored 55/100. Pass bar 80. Maker path 1 and 0."}
   ]
 }
