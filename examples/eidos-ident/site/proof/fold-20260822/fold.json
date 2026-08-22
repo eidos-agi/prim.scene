@@ -1,0 +1,104 @@
+[
+  {
+    "name": "desktop",
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "video": {
+      "top": 320,
+      "bottom": 927,
+      "height": 608,
+      "width": 1080,
+      "visibleHeight": 580
+    },
+    "stage": {
+      "top": 320,
+      "bottom": 927,
+      "height": 608,
+      "width": 1080,
+      "visibleHeight": 580
+    },
+    "h1": {
+      "top": 107,
+      "bottom": 182,
+      "height": 75,
+      "width": 737,
+      "visibleHeight": 75
+    },
+    "lede": {
+      "top": 198,
+      "bottom": 296,
+      "height": 97,
+      "width": 576,
+      "visibleHeight": 97
+    },
+    "kicker": {
+      "top": 84,
+      "bottom": 95,
+      "height": 11,
+      "width": 1080,
+      "visibleHeight": 11
+    },
+    "videoInFirstViewport": true,
+    "videoFullyInFirstViewport": false,
+    "videoTopPx": 320,
+    "videoVisiblePctOfViewport": 48,
+    "copyBlockPx": null,
+    "ledeWords": 27,
+    "ledeText": "This clip is a render of a scene file. You can change the file and capture it again. An AI-generated clip will not let you do that.",
+    "title": "Keep the shot.",
+    "screenshot": "/Users/dshanklinbv/repos-eidos-agi/prim.scene/examples/eidos-ident/site/proof/fold-20260822/desktop-fold.png"
+  },
+  {
+    "name": "phone",
+    "viewport": {
+      "w": 390,
+      "h": 844
+    },
+    "video": {
+      "top": 426,
+      "bottom": 626,
+      "height": 200,
+      "width": 355,
+      "visibleHeight": 200
+    },
+    "stage": {
+      "top": 426,
+      "bottom": 626,
+      "height": 200,
+      "width": 355,
+      "visibleHeight": 200
+    },
+    "h1": {
+      "top": 288,
+      "bottom": 327,
+      "height": 39,
+      "width": 355,
+      "visibleHeight": 39
+    },
+    "lede": {
+      "top": 343,
+      "bottom": 413,
+      "height": 70,
+      "width": 355,
+      "visibleHeight": 70
+    },
+    "kicker": {
+      "top": 265,
+      "bottom": 276,
+      "height": 11,
+      "width": 355,
+      "visibleHeight": 11
+    },
+    "videoInFirstViewport": true,
+    "videoFullyInFirstViewport": true,
+    "videoTopPx": 426,
+    "videoVisiblePctOfViewport": 22,
+    "copyBlockPx": null,
+    "ledeWords": 27,
+    "ledeText": "This clip is a render of a scene file. You can change the file and capture it again. An AI-generated clip will not let you do that.",
+    "title": "Keep the shot.",
+    "screenshot": "/Users/dshanklinbv/repos-eidos-agi/prim.scene/examples/eidos-ident/site/proof/fold-20260822/phone-fold.png"
+  }
+]
