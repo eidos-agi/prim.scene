@@ -1,33 +1,277 @@
 {
   "format": "prim.scene",
-  "version": "0.1.0",
-  "scene_id": "scene:eidos-agi:ident-v1",
-  "title": "Eidos ident v1",
+  "version": "0.2.0",
+  "scene_id": "scene:eidos-agi:ident-v3",
+  "title": "Eidos ident v3",
   "duration": 16.0,
   "fps": 30,
-  "size": [1920, 1080],
-  "intent": "Flying approach of the tridot; name lands after the fly.",
+  "size": [
+    1920,
+    1080
+  ],
+  "intent": "Left brass grows out of mid brass, both lock at one float height above the floor. Banked fly past sage, then the name. Flying, not a dolly into three balls.",
   "camera": {
     "keys": [
-      { "t": 0.0,  "pos": [16.5, 7.4, 22.0],  "look": [1.4, 0.4, 0.2],  "fov": 46 },
-      { "t": 3.4,  "pos": [9.2, 3.8, 12.5],   "look": [1.8, 0.35, 0.1], "fov": 40 },
-      { "t": 6.8,  "pos": [4.6, 1.15, 4.2],   "look": [2.1, 0.5, 0.05], "fov": 36 },
-      { "t": 9.2,  "pos": [3.35, 0.88, 2.45], "look": [2.05, 0.48, 0],  "fov": 36 },
-      { "t": 11.6, "pos": [-1.8, 3.1, 6.8],   "look": [0.3, 0.25, 0],   "fov": 34 },
-      { "t": 14.2, "pos": [0.08, 0.58, 12.4], "look": [0.0, 0.22, 0],   "fov": 32 },
-      { "t": 16.0, "pos": [0.0, 0.50, 12.05], "look": [0.0, 0.20, 0],   "fov": 32 }
+      {
+        "t": 0.0,
+        "pos": [
+          7.8,
+          3.6,
+          13.2
+        ],
+        "look": [
+          0.15,
+          0.22,
+          0.0
+        ],
+        "fov": 40,
+        "roll": 0
+      },
+      {
+        "t": 2.6,
+        "pos": [
+          6.2,
+          2.05,
+          8.2
+        ],
+        "look": [
+          -0.45,
+          0.26,
+          0.0
+        ],
+        "fov": 38,
+        "roll": -5
+      },
+      {
+        "t": 5.4,
+        "pos": [
+          4.9,
+          1.45,
+          5.3
+        ],
+        "look": [
+          0.35,
+          0.36,
+          0.0
+        ],
+        "fov": 36,
+        "roll": -9
+      },
+      {
+        "t": 8.2,
+        "pos": [
+          3.55,
+          0.95,
+          2.7
+        ],
+        "look": [
+          2.05,
+          0.52,
+          0.0
+        ],
+        "fov": 35,
+        "roll": -14
+      },
+      {
+        "t": 10.6,
+        "pos": [
+          -2.8,
+          2.55,
+          5.4
+        ],
+        "look": [
+          0.2,
+          0.38,
+          0.0
+        ],
+        "fov": 34,
+        "roll": 8
+      },
+      {
+        "t": 13.2,
+        "pos": [
+          0.12,
+          0.72,
+          11.6
+        ],
+        "look": [
+          0.0,
+          0.36,
+          0.0
+        ],
+        "fov": 32,
+        "roll": 1
+      },
+      {
+        "t": 16.0,
+        "pos": [
+          0.0,
+          0.62,
+          12.0
+        ],
+        "look": [
+          0.0,
+          0.32,
+          0.0
+        ],
+        "fov": 32,
+        "roll": 0
+      }
     ]
   },
   "objects": [
-    { "id": "left",  "kind": "sphere", "material": "brass-light", "position": [-2.207, 0.0, 0.0] },
-    { "id": "mid",   "kind": "sphere", "material": "brass",       "position": [0.0, 0.0, 0.0] },
-    { "id": "right", "kind": "sphere", "material": "sage",        "position": [2.207, 0.58, 0.0], "note": "Praxis — alive, not static" },
-    { "id": "floor", "kind": "plane",  "material": "ink",         "position": [0.0, -1.02, 0.0] }
+    {
+      "id": "left",
+      "kind": "sphere",
+      "material": "brass-light",
+      "position": [
+        0.0,
+        0.08,
+        0.0
+      ],
+      "keys": [
+        {
+          "t": 0.0,
+          "position": [
+            0.0,
+            0.08,
+            0.0
+          ],
+          "scale": 0.08
+        },
+        {
+          "t": 1.8,
+          "position": [
+            -0.5,
+            0.0799,
+            0.05
+          ],
+          "scale": 0.42
+        },
+        {
+          "t": 3.6,
+          "position": [
+            -1.1,
+            0.0694,
+            0.02
+          ],
+          "scale": 0.72
+        },
+        {
+          "t": 6.4,
+          "position": [
+            -1.78,
+            0.0759,
+            0.0
+          ],
+          "scale": 0.92
+        },
+        {
+          "t": 10.5,
+          "position": [
+            -2.12,
+            0.1503,
+            0.0
+          ],
+          "scale": 0.98
+        },
+        {
+          "t": 16.0,
+          "position": [
+            -2.207,
+            0.188,
+            0.0
+          ],
+          "scale": 1.0
+        }
+      ]
+    },
+    {
+      "id": "mid",
+      "kind": "sphere",
+      "material": "brass",
+      "position": [
+        0.0,
+        0.08,
+        0.0
+      ],
+      "keys": [
+        {
+          "t": 0.0,
+          "position": [
+            0.0,
+            0.08,
+            0.0
+          ],
+          "scale": 1.0
+        },
+        {
+          "t": 4.8,
+          "position": [
+            0.0,
+            0.22,
+            0.0
+          ],
+          "scale": 1.0
+        },
+        {
+          "t": 11.5,
+          "position": [
+            0.0,
+            0.4,
+            0.0
+          ],
+          "scale": 1.0
+        },
+        {
+          "t": 16.0,
+          "position": [
+            0.0,
+            0.42,
+            0.0
+          ],
+          "scale": 1.0
+        }
+      ]
+    },
+    {
+      "id": "right",
+      "kind": "sphere",
+      "material": "sage",
+      "position": [
+        2.207,
+        0.833,
+        0.0
+      ],
+      "note": "Praxis \u2014 alive, not static"
+    },
+    {
+      "id": "floor",
+      "kind": "plane",
+      "material": "ink",
+      "position": [
+        0.0,
+        -1.02,
+        0.0
+      ]
+    }
   ],
-  "group": { "rotation_z_deg": -6 },
+  "group": {
+    "rotation_z_deg": -6
+  },
   "type": [
-    { "id": "word", "in": 12.2, "full": 13.1, "text": "Eidos AGI" },
-    { "id": "lede", "in": 13.4, "full": 14.4, "text": "Software for agents. Governance for reality." }
+    {
+      "id": "word",
+      "in": 12.0,
+      "full": 12.9,
+      "text": "Eidos AGI"
+    },
+    {
+      "id": "lede",
+      "in": 13.2,
+      "full": 14.2,
+      "text": "Software for agents. Governance for reality."
+    }
   ],
   "audio": {
     "file": "audio/bed.m4a",

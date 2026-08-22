@@ -49,8 +49,8 @@
     }
     #word {
       font-weight: 700;
-      font-size: 54px;
-      letter-spacing: 0.18em;
+      font-size: 64px;
+      letter-spacing: 0.16em;
       line-height: 1;
       color: #ede5d8;
       opacity: 0;
@@ -70,9 +70,9 @@
     }
     #lede {
       font-weight: 400;
-      font-size: 22px;
+      font-size: 24px;
       letter-spacing: 0.04em;
-      color: #b5aaa0;
+      color: #c4bbb0;
       opacity: 0;
     }
     #grain {
@@ -118,15 +118,10 @@
     import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
     import { RectAreaLightUniformsLib } from "three/addons/lights/RectAreaLightUniformsLib.js";
 
-    const W = 1920, H = 1080;
+    const spec = await fetch("./scene.json").then((r) => r.json());
+    const W = spec.size[0], H = spec.size[1];
     const BG = 0x161210;
-
-    // Live mark (favicon.svg): rotate -6°, third dot raised.
-    // r=1. Sphere centers, local space, before group tilt.
     const R = 1;
-    const LEFT  = new THREE.Vector3(-2.207, 0, 0);
-    const MID   = new THREE.Vector3(0, 0, 0);
-    const RIGHT = new THREE.Vector3(2.207, 0.58, 0); // Praxis: alive, not static
 
     const clamp01 = (x) => Math.max(0, Math.min(1, x));
     const smoother = (t) => {
@@ -143,7 +138,7 @@
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(BG);
-    scene.fog = new THREE.FogExp2(BG, 0.032);
+    scene.fog = new THREE.FogExp2(BG, 0.022);
 
     const camera = new THREE.PerspectiveCamera(34, W / H, 0.05, 80);
     camera.position.set(2.7, 0.55, 0.9);
@@ -220,7 +215,7 @@
     scene.environmentIntensity = 0.55;
 
     const group = new THREE.Group();
-    group.rotation.z = THREE.MathUtils.degToRad(-6);
+    group.rotation.z = THREE.MathUtils.degToRad((spec.group && spec.group.rotation_z_deg) || 0);
     scene.add(group);
 
     const geo = new THREE.SphereGeometry(R, 128, 96);
@@ -250,17 +245,73 @@
       envMapIntensity: 0.45,
     });
 
-    const sL = new THREE.Mesh(geo, brassL);
-    const sM = new THREE.Mesh(geo, brassM);
-    const sR = new THREE.Mesh(geo, sage);
-    sL.position.copy(LEFT);
-    sM.position.copy(MID);
-    sR.position.copy(RIGHT);
-    for (const s of [sL, sM, sR]) {
-      s.castShadow = true;
-      s.receiveShadow = true;
-      group.add(s);
+    const mats = { "brass-light": brassL, brass: brassM, sage: sage };
+    const spheres = {};
+    for (const o of spec.objects) {
+      if (o.kind !== "sphere") continue;
+      const mesh = new THREE.Mesh(geo, mats[o.material] || brassM);
+      mesh.position.fromArray(o.position);
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+      group.add(mesh);
+      spheres[o.id] = mesh;
     }
+    const sR = spheres.right;
+    const sageSpec = spec.objects.find((o) => o.id === "right") || { position: [0, 0, 0] };
+    const RIGHT_Y = sageSpec.position[1];
+    const sageHasKeys = Array.isArray(sageSpec.keys) && sageSpec.keys.length > 0;
+
+    function poseOfKey(k, fallback) {
+      const pos = (k && k.position) ? k.position : (fallback.position || [0, 0, 0]);
+      const scale = (k && k.scale != null) ? k.scale : (fallback.scale != null ? fallback.scale : 1);
+      return { pos: pos.slice(), scale };
+    }
+    function sampleObj(obj, t) {
+      const ks = obj.keys;
+      if (!ks || !ks.length) {
+        return {
+          pos: (obj.position || [0, 0, 0]).slice(),
+          scale: obj.scale != null ? obj.scale : 1,
+        };
+      }
+      if (t <= ks[0].t) return poseOfKey(ks[0], obj);
+      const last = ks[ks.length - 1];
+      if (t >= last.t) return poseOfKey(last, obj);
+      let i = 0;
+      while (i < ks.length - 1 && t > ks[i + 1].t) i++;
+      const a = ks[i], b = ks[i + 1];
+      const u = (t - a.t) / Math.max(1e-6, b.t - a.t);
+      const pa = a.position, pb = b.position;
+      const sa = a.scale != null ? a.scale : 1;
+      const sb = b.scale != null ? b.scale : 1;
+      return {
+        pos: [lerp(pa[0], pb[0], u), lerp(pa[1], pb[1], u), lerp(pa[2], pb[2], u)],
+        scale: lerp(sa, sb, u),
+      };
+    }
+    function applyObjectKeys(t) {
+      for (const o of spec.objects) {
+        if (o.kind !== "sphere") continue;
+        const mesh = spheres[o.id];
+        if (!mesh) continue;
+        const pose = sampleObj(o, t);
+        mesh.position.fromArray(pose.pos);
+        mesh.scale.setScalar(pose.scale);
+      }
+    }
+    window.__objectPose = (id) => {
+      const m = spheres[id];
+      if (!m) return null;
+      return { x: m.position.x, y: m.position.y, z: m.position.z, scale: m.scale.x };
+    };
+    const _world = new THREE.Vector3();
+    window.__objectWorldPose = (id) => {
+      const m = spheres[id];
+      if (!m) return null;
+      group.updateMatrixWorld(true);
+      m.getWorldPosition(_world);
+      return { x: _world.x, y: _world.y, z: _world.z, scale: m.scale.x };
+    };
 
     const floor = new THREE.Mesh(
       new THREE.PlaneGeometry(40, 40),
@@ -272,15 +323,16 @@
     scene.add(floor);
 
     // Workshop dust in the lamp — not AI particles. Specks.
-    const DUST_N = 900;
+    const DUST_N = 700;
     const dustPos = new Float32Array(DUST_N * 3);
     const dustBase = [];
     for (let i = 0; i < DUST_N; i++) {
-      const x = (Math.random() - 0.5) * 14;
-      const y = Math.random() * 8 - 0.5;
-      const z = (Math.random() - 0.5) * 12;
+      // Lamp volume, not a starfield: tight, low, around the mark.
+      const x = (Math.random() - 0.5) * 7;
+      const y = Math.random() * 2.8;
+      const z = (Math.random() - 0.4) * 8;
       dustPos[i * 3] = x; dustPos[i * 3 + 1] = y; dustPos[i * 3 + 2] = z;
-      dustBase.push({ x, y, z, p: Math.random() * Math.PI * 2, s: 0.15 + Math.random() * 0.35 });
+      dustBase.push({ x, y, z, p: Math.random() * Math.PI * 2, s: 0.12 + Math.random() * 0.22 });
     }
     const dustGeo = new THREE.BufferGeometry();
     dustGeo.setAttribute("position", new THREE.BufferAttribute(dustPos, 3));
@@ -288,7 +340,7 @@
       dustGeo,
       new THREE.PointsMaterial({
         color: 0xe6d3b3,
-        size: 0.018,
+        size: 0.022,
         transparent: true,
         opacity: 0.0,
         depthWrite: false,
@@ -300,29 +352,43 @@
     const word = document.getElementById("word");
     const lede = document.getElementById("lede");
     const rule = document.getElementById("rule");
+    const wordSpec0 = (spec.type || []).find((x) => x.id === "word");
+    const ledeSpec0 = (spec.type || []).find((x) => x.id === "lede");
+    if (wordSpec0 && wordSpec0.text) {
+      const bits = wordSpec0.text.split(/\s+/);
+      word.innerHTML = bits[0] + (bits[1] ? `<span class="agi">${bits[1]}</span>` : "");
+    }
+    if (ledeSpec0 && ledeSpec0.text) lede.textContent = ledeSpec0.text;
 
-    // Camera: a slow aerial. Far → fly through the trilogy → settle on the mark.
-    const keys = [
-      { t:  0.00, pos: [16.5, 7.4, 22.0], look: [1.4, 0.4, 0.2],  fov: 46 },
-      { t:  3.40, pos: [ 9.2, 3.8, 12.5], look: [1.8, 0.35, 0.1], fov: 40 },
-      { t:  6.80, pos: [ 4.6, 1.15, 4.2], look: [2.1, 0.5, 0.05], fov: 36 },
-      { t:  9.20, pos: [ 3.35, 0.88, 2.45], look: [2.05, 0.48, 0], fov: 36 },
-      { t: 11.60, pos: [-1.8, 3.1,  6.8], look: [0.3, 0.25, 0],   fov: 34 },
-      { t: 14.20, pos: [ 0.08, 0.58, 12.4], look: [0.0, 0.22, 0],  fov: 32 },
-      { t: 16.00, pos: [ 0.00, 0.50, 12.05], look: [0.0, 0.20, 0], fov: 32 },
-    ];
+    const keys = spec.camera.keys;
 
+    function cm(p0, p1, p2, p3, u) {
+      const u2 = u * u, u3 = u2 * u;
+      return p0.map((_, i) =>
+        0.5 * ((2 * p1[i]) + (-p0[i] + p2[i]) * u +
+          (2 * p0[i] - 5 * p1[i] + 4 * p2[i] - p3[i]) * u2 +
+          (-p0[i] + 3 * p1[i] - 3 * p2[i] + p3[i]) * u3));
+    }
+    function keyAt(i) {
+      const n = keys.length;
+      return keys[Math.max(0, Math.min(n - 1, i))];
+    }
     function sampleKeys(t) {
-      if (t <= keys[0].t) return keys[0];
-      if (t >= keys[keys.length - 1].t) return keys[keys.length - 1];
+      if (t <= keys[0].t) return { ...keys[0], pos: keys[0].pos.slice(), look: keys[0].look.slice() };
+      if (t >= keys[keys.length - 1].t) {
+        const k = keys[keys.length - 1];
+        return { ...k, pos: k.pos.slice(), look: k.look.slice() };
+      }
       let i = 0;
       while (i < keys.length - 1 && t > keys[i + 1].t) i++;
       const a = keys[i], b = keys[i + 1];
-      const u = smoother((t - a.t) / (b.t - a.t));
+      const u = (t - a.t) / (b.t - a.t);
+      const p0 = keyAt(i - 1), p1 = a, p2 = b, p3 = keyAt(i + 2);
       return {
-        pos: a.pos.map((v, k) => lerp(v, b.pos[k], u)),
-        look: a.look.map((v, k) => lerp(v, b.look[k], u)),
+        pos: cm(p0.pos, p1.pos, p2.pos, p3.pos, u),
+        look: cm(p0.look, p1.look, p2.look, p3.look, u),
         fov: lerp(a.fov, b.fov, u),
+        roll: lerp(a.roll || 0, b.roll || 0, u),
       };
     }
 
@@ -331,26 +397,28 @@
       const cam = sampleKeys(t);
       camera.position.set(cam.pos[0], cam.pos[1], cam.pos[2]);
       _look.set(cam.look[0], cam.look[1], cam.look[2]);
+      camera.up.set(0, 1, 0);
       camera.lookAt(_look);
+      camera.rotateZ(THREE.MathUtils.degToRad(cam.roll || 0));
       camera.fov = cam.fov;
       camera.updateProjectionMatrix();
 
-      const lightOn = lerp(0.55, 1, smoother(t / 2.2));
-      key.intensity = 140 * lightOn;
+      const lightOn = lerp(0.82, 1, smoother(t / 1.6));
+      key.intensity = 180 * lightOn;
       key.target.position.set(0.2, 0.2, 0);
       key.target.updateMatrixWorld();
-      windowLight.intensity = 14 * lightOn;
-      sagePanel.intensity = 5.5 * lightOn;
-      rim.intensity = 1.6 * lightOn;
-      brassFill.intensity = 8 * lightOn;
-      renderer.toneMappingExposure = lerp(0.72, 0.90, smoother(t / 3.0));
-      bloom.strength = lerp(0.16, 0.10, smoother(t / 8));
+      windowLight.intensity = 18 * lightOn;
+      sagePanel.intensity = 7.5 * lightOn;
+      rim.intensity = 2.1 * lightOn;
+      brassFill.intensity = 10 * lightOn;
+      renderer.toneMappingExposure = lerp(0.84, 0.96, smoother(t / 4.0));
+      bloom.strength = lerp(0.14, 0.10, smoother(t / 8));
 
-      // Sage sphere: a 2mm hover. Alive.
-      const hover = Math.sin(t * 1.15) * 0.028;
-      sR.position.y = RIGHT.y + hover;
+      applyObjectKeys(t);
+      // Praxis micro-bob only when sage has no keys — keys are authority.
+      if (sR && !sageHasKeys) sR.position.y = RIGHT_Y + Math.sin(t * 1.15) * 0.028;
 
-      dust.material.opacity = 0.18 * lightOn;
+      dust.material.opacity = 0.22 * lightOn;
       const attr = dust.geometry.attributes.position;
       for (let i = 0; i < DUST_N; i++) {
         const b = dustBase[i];
@@ -360,17 +428,19 @@
       }
       attr.needsUpdate = true;
 
-      word.style.opacity = String(fade(t, 12.2, 13.1, 30, 30));
-      const ruleT = fade(t, 12.8, 13.7, 30, 30);
+      const wordSpec = (spec.type || []).find((x) => x.id === "word");
+      const ledeSpec = (spec.type || []).find((x) => x.id === "lede");
+      if (wordSpec) word.style.opacity = String(fade(t, wordSpec.in, wordSpec.full, 99, 99));
+      const ruleT = wordSpec ? fade(t, wordSpec.in + 0.6, wordSpec.full + 0.6, 99, 99) : 0;
       rule.style.opacity = String(ruleT);
-      rule.style.width = `${Math.round(ruleT * 168)}px`;
-      lede.style.opacity = String(fade(t, 13.4, 14.4, 30, 30));
+      rule.style.width = `${Math.round(ruleT * 188)}px`;
+      if (ledeSpec) lede.style.opacity = String(fade(t, ledeSpec.in, ledeSpec.full, 99, 99));
 
       composer.render();
     }
 
     window.__seek = seek;
-    window.__duration = 16;
+    window.__duration = spec.duration;
     seek(0);
     document.fonts.ready.then(() => {
       seek(0);

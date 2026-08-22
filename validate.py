@@ -48,6 +48,32 @@ def validate(pack: Path) -> list[str]:
     for obj in s.get("objects") or []:
         if "id" not in obj or "kind" not in obj or "position" not in obj:
             err.append(f"object missing id/kind/position: {obj!r}")
+            continue
+        oid = obj["id"]
+        okeys = obj.get("keys")
+        if okeys is None:
+            continue
+        if not okeys:
+            err.append(f"object {oid}: keys empty")
+            continue
+        times = [k.get("t") for k in okeys]
+        if times[0] != 0:
+            err.append(f"object {oid}: first key t must be 0 (got {times[0]})")
+        try:
+            last_t = float(times[-1])
+        except (TypeError, ValueError):
+            err.append(f"object {oid}: last key t={times[-1]} is not a number")
+            last_t = None
+        if last_t is not None and abs(last_t - float(dur)) > 1e-6:
+            err.append(f"object {oid}: last key t={times[-1]} must equal duration={dur}")
+        for a, b in zip(times, times[1:]):
+            if not (isinstance(a, (int, float)) and isinstance(b, (int, float)) and b > a):
+                err.append(f"object {oid}: key t must be strictly increasing (got {times})")
+                break
+        for k in okeys:
+            pos = k.get("position")
+            if not (isinstance(pos, list) and len(pos) == 3):
+                err.append(f"object {oid}: key t={k.get('t')} position must be a 3-vector")
     for t in s.get("type") or []:
         inn, full = t.get("in"), t.get("full")
         if inn is None or full is None or not (0 <= inn < full <= dur):

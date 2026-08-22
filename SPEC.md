@@ -86,6 +86,27 @@ Each object: `id`, `kind`, `position`. Optional `material`, `rotation`, `scale`.
 
 v0.1 kinds: `sphere`, `plane`, `group`. Unknown kinds are allowed; the renderer may ignore them.
 
+`position` is the static pose for the whole duration when the object has no `keys`. It remains required even when `keys` are present (the t=0 rest, and the pose a renderer uses if it cannot sample).
+
+#### Object keys (optional)
+
+An object MAY carry `keys`, the same kind of timed samples as camera keys:
+
+```json
+"keys": [
+  { "t": 0.0, "position": [0.0, 0.08, 0.0], "scale": 0.08 },
+  { "t": 16.0, "position": [-2.207, 0.42, 0.0], "scale": 1.0 }
+]
+```
+
+- `t` is seconds from scene start. Keys MUST be strictly increasing in `t`.
+- First key `t` MUST be `0`. Last key `t` MUST equal `duration`.
+- `position` is world-space `[x,y,z]`. `scale` is optional (uniform).
+- When `keys` is omitted, `objects[].position` (and optional static `scale`) is the pose for the whole duration.
+- A camera key inside a solid is still a camera defect. Object keys do not relax that rule.
+
+The renderer samples these keys at `window.__seek(t)`. It MUST NOT invent object motion that is not in `scene.json`.
+
 ### Type (optional)
 
 On-screen type is not the story of the scene. Motion is. If present:
@@ -120,6 +141,6 @@ A scene is not a video. If you need more than one beat, that is `prim.video`.
 
 `python3 validate.py <pack>`
 
-Hard fail: missing `scene.json`, missing required keys, non-increasing camera times, last key ≠ duration, type times out of range.
+Hard fail: missing `scene.json`, missing required keys, non-increasing camera times, last camera key ≠ duration, object keys present but empty / first t ≠ 0 / last t ≠ duration / non-increasing t / missing 3-vector position, type times out of range.
 
 Warning: `renderer.html` present but `window.__duration` disagrees with `scene.json` (v0.1 dual-authority debt).
