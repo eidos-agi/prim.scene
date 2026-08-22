@@ -43,4 +43,21 @@
   }
   window.addEventListener("hashchange", revealHash);
   revealHash();
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function (ev) {
+      var id = (a.getAttribute("href") || "").slice(1);
+      var el = document.getElementById(id);
+      if (!el) return;
+      ev.preventDefault();
+      var target = el.querySelector(".inner") || el.querySelector(".stage") || el;
+      var html = document.documentElement;
+      var prev = html.style.scrollBehavior;
+      html.style.scrollBehavior = "auto";
+      target.scrollIntoView({ behavior: "auto", block: "center" });
+      html.style.scrollBehavior = prev;
+      if (history.replaceState) history.replaceState(null, "", "#" + id);
+      revealIn(el);
+    });
+  });
 })();

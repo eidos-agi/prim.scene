@@ -1,0 +1,78 @@
+[
+  {
+    "name": "desktop",
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "stage": {
+      "top": 0,
+      "bottom": 900,
+      "height": 900,
+      "width": 1440,
+      "visibleHeight": 900
+    },
+    "h1": {
+      "top": 813,
+      "bottom": 868,
+      "height": 55,
+      "width": 423,
+      "visibleHeight": 55
+    },
+    "lede": null,
+    "videoFullyInFirstViewport": true,
+    "videoVisiblePctOfViewport": 100,
+    "h1Text": "Keep the shot.",
+    "ledeWords": 0,
+    "chapters": [
+      "v6",
+      "proof",
+      "s1",
+      "s2",
+      "s3",
+      "s4",
+      "s5",
+      "s6",
+      "make",
+      "prims"
+    ]
+  },
+  {
+    "name": "phone",
+    "viewport": {
+      "w": 390,
+      "h": 844
+    },
+    "stage": {
+      "top": 0,
+      "bottom": 844,
+      "height": 844,
+      "width": 390,
+      "visibleHeight": 844
+    },
+    "h1": {
+      "top": 779,
+      "bottom": 812,
+      "height": 33,
+      "width": 249,
+      "visibleHeight": 33
+    },
+    "lede": null,
+    "videoFullyInFirstViewport": true,
+    "videoVisiblePctOfViewport": 100,
+    "h1Text": "Keep the shot.",
+    "ledeWords": 0,
+    "chapters": [
+      "v6",
+      "proof",
+      "s1",
+      "s2",
+      "s3",
+      "s4",
+      "s5",
+      "s6",
+      "make",
+      "prims"
+    ]
+  }
+]

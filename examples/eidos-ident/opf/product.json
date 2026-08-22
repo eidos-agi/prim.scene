@@ -100,7 +100,7 @@
       "type": "outcome",
       "title": "A stranger can write, capture, tweak, recapture",
       "status": "blocked",
-      "description": "Make chapter names the steps and the real capture command. Maker band is 17/20. Still blocked until a stranger actually captures. Primary fail is now hook/reveal, not missing commands.",
+      "description": "Make chapter names the steps and the real capture command. Maker band is 17/20. Still blocked until a stranger actually captures.",
       "provenance": {"by": "agent:grok", "method": "LOOK-0006 maker onramp"}
     },
     {
@@ -108,7 +108,7 @@
       "type": "surface",
       "title": "video.eidosagi.com",
       "status": "operating",
-      "description": "Volta-scroll reel on Hostkey. Live fold: phone film 22% of first viewport under a 27-word thesis. Homework is chapter 3 of 10.",
+      "description": "Volta-scroll reel on Hostkey. Live fold: film 100% of first viewport, title on the film. Order: play → recapture → stills → make → store.",
       "provenance": {"by": "agent:grok", "method": "volta scroll on Hostkey"}
     },
     {
@@ -155,29 +155,29 @@
       "type": "proof",
       "title": "North star acceptance, scored",
       "status": "active",
-      "description": "64/100 on hook/reveal bands. Hook 16/30 and reveal 14/30 miss the 20 gates. Truth 17 and maker 17. Retired 78 was a false green.",
+      "description": "83/100. Hook 28/30 and reveal 21/30 clear the 20 gates. Truth 17, maker 17. Live fold 100% film both breakpoints.",
       "content": "content/acceptance.md",
       "score": {
-        "total": 64,
+        "total": 83,
         "max": 100,
-        "at": "2026-08-22T23:55:00Z",
+        "at": "2026-08-22T22:00:00Z",
         "pass": 80,
         "by": "agent:grok",
-        "method": "Hook 30 + reveal 30 + truth 20 + maker 20. Pass requires total 80 and hook ≥ 20 and reveal ≥ 20. Fold measured on live Hostkey.",
+        "method": "Rescore after film-first fold and Make moved after stills. Live Hostkey fold-live/fold.json.",
         "gates": {"hook": 20, "reveal": 20},
         "bands": [
-          {"id": "hook", "title": "Frontload the cool thing", "points": 16, "max": 30, "gate": 20, "pass": false},
-          {"id": "reveal", "title": "Progressive reveal of benefits", "points": 14, "max": 30, "gate": 20, "pass": false},
+          {"id": "hook", "title": "Frontload the cool thing", "points": 28, "max": 30, "gate": 20, "pass": true},
+          {"id": "reveal", "title": "Progressive reveal of benefits", "points": 21, "max": 30, "gate": 20, "pass": true},
           {"id": "truth", "title": "Reuse claim is true on the page", "points": 17, "max": 20},
           {"id": "maker", "title": "Maker can name real steps", "points": 17, "max": 20}
         ],
         "criteria": [
-          {"id": "H1", "band": "hook", "title": "First viewport is the film", "points": 5, "max": 10, "note": "Phone film 22% of fold; desktop 48% and clipped"},
-          {"id": "H2", "band": "hook", "title": "Cool object, want the next beat", "points": 7, "max": 10, "note": "One-tap ident; lecture first"},
-          {"id": "H3", "band": "hook", "title": "Fold copy does not dump the thesis", "points": 4, "max": 10, "note": "27-word three-sentence lede above the player"},
-          {"id": "R1", "band": "reveal", "title": "One new ladder benefit per chapter", "points": 4, "max": 10, "note": "Six still-stalls; hero and Make dump"},
-          {"id": "R2", "band": "reveal", "title": "Desire before homework", "points": 4, "max": 10, "note": "Make is chapter 3 of 10, before remaining film"},
-          {"id": "R3", "band": "reveal", "title": "Benefits are shown, not only claimed", "points": 6, "max": 10, "note": "Type-off pair plus real commands; later-renderer absent"},
+          {"id": "H1", "band": "hook", "title": "First viewport is the film", "points": 10, "max": 10, "note": "Phone and desktop film 100% of fold"},
+          {"id": "H2", "band": "hook", "title": "Cool object, want the next beat", "points": 8, "max": 10, "note": "One-tap; poster is the ident; not mute-autoplay"},
+          {"id": "H3", "band": "hook", "title": "Fold copy does not dump the thesis", "points": 10, "max": 10, "note": "Title only on the film"},
+          {"id": "R1", "band": "reveal", "title": "One new ladder benefit per chapter", "points": 7, "max": 10, "note": "One stall: six plot stills after recapture"},
+          {"id": "R2", "band": "reveal", "title": "Desire before homework", "points": 7, "max": 10, "note": "Make is chapter 9 of 10"},
+          {"id": "R3", "band": "reveal", "title": "Benefits are shown, not only claimed", "points": 7, "max": 10, "note": "Type-off pair plus real commands; later-renderer absent"},
           {"id": "T1", "band": "truth", "title": "Story is reuse; recapture pair does not lie", "points": 8, "max": 10},
           {"id": "T2", "band": "truth", "title": "Live ident; real capture command", "points": 9, "max": 10},
           {"id": "M1", "band": "maker", "title": "Cold maker names write-capture-tweak-recapture", "points": 8, "max": 10},
@@ -214,16 +214,16 @@
       "id": "opf:eidos-video:outcome:hook-then-reveal",
       "type": "outcome",
       "title": "Film first, then one new benefit per scroll",
-      "status": "blocked",
-      "description": "A cold viewer plays the ident in the first viewport and each following chapter adds one ladder benefit. Desire before homework. Currently blocked: phone film 22% of the fold, 27-word thesis above play, Make is chapter 3, six still stalls.",
+      "status": "active",
+      "description": "Live fold is the ident (100% phone and desktop). Recapture is next. Make is chapter 9 of 10. Six plot stills remain a stall on the ladder, not a fold failure.",
       "provenance": {"by": "agent:grok", "method": "Daniel 2026-08-22: score progressive reveal and frontloaded hook"}
     },
     {
       "id": "opf:eidos-video:gap:hook-reveal",
       "type": "gap",
-      "title": "Fold is a thesis; scroll stalls after homework",
+      "title": "Six plot stills still stall the benefit ladder",
       "status": "active",
-      "description": "Phone first viewport is empty space + 27-word lede + a 22% film. Desktop film is 48% and clipped. Make dumps the recipe as chapter 3 of 10. Six ident stills add plot, not reuse. Later-renderer never appears.",
+      "description": "Fold and Make placement clear the 20 gates. Remaining: Aim–Mark are six chapters of plot, not reuse. Later-renderer never appears.",
       "provenance": {"by": "agent:grok", "method": "Live fold 2026-08-22 + chapter audit of site/index.html"}
     },
     {
@@ -231,7 +231,15 @@
       "type": "evidence",
       "title": "First-viewport fold, desktop 1440×900 and phone 390×844",
       "status": "active",
-      "description": "Playwright against https://video.eidosagi.com. Desktop: film top 320/900, 48% occupancy, clipped. Phone: film top 426/844, 22% occupancy, 27-word lede above play. Artifacts in site/proof/fold-20260822/.",
+      "description": "Pre-fix fold. Desktop 48% clipped, phone 22% under a 27-word lede. Superseded by fold-live.",
+      "provenance": {"by": "agent:grok", "method": "Chrome channel Playwright, MAP video.eidosagi.com 162.120.18.7"}
+    },
+    {
+      "id": "opf:eidos-video:evidence:fold-live",
+      "type": "evidence",
+      "title": "Live fold after film-first fix, 1440×900 and 390×844",
+      "status": "active",
+      "description": "Playwright against https://video.eidosagi.com. Film 100% of first viewport both breakpoints, fully in view, title on the film, no lede. Artifacts in site/proof/fold-live/.",
       "provenance": {"by": "agent:grok", "method": "Chrome channel Playwright, MAP video.eidosagi.com 162.120.18.7"}
     },
     {
@@ -269,6 +277,7 @@
     {"id": "opf:eidos-video:rel:c-ev-pair", "type": "contains", "from": "opf:eidos-video:area:assurance", "to": "opf:eidos-video:evidence:recapture-pair", "order": 1},
     {"id": "opf:eidos-video:rel:c-ev-look", "type": "contains", "from": "opf:eidos-video:area:assurance", "to": "opf:eidos-video:evidence:look-0006", "order": 2},
     {"id": "opf:eidos-video:rel:c-ev-fold", "type": "contains", "from": "opf:eidos-video:area:assurance", "to": "opf:eidos-video:evidence:fold-20260822", "order": 3},
+    {"id": "opf:eidos-video:rel:c-ev-fold-live", "type": "contains", "from": "opf:eidos-video:area:assurance", "to": "opf:eidos-video:evidence:fold-live", "order": 5},
     {"id": "opf:eidos-video:rel:c-ev-look3", "type": "contains", "from": "opf:eidos-video:area:assurance", "to": "opf:eidos-video:evidence:look-0003", "order": 4},
 
     {"id": "opf:eidos-video:rel:c-gap", "type": "contains", "from": "opf:eidos-video:area:gaps", "to": "opf:eidos-video:gap:maker-onramp", "order": 0},
@@ -303,9 +312,9 @@
     {"id": "opf:eidos-video:rel:proof-pair", "type": "supported-by", "from": "opf:eidos-video:proof:north-star", "to": "opf:eidos-video:evidence:recapture-pair"},
     {"id": "opf:eidos-video:rel:proof-look", "type": "supported-by", "from": "opf:eidos-video:proof:north-star", "to": "opf:eidos-video:evidence:look-0006"},
     {"id": "opf:eidos-video:rel:proof-fold", "type": "supported-by", "from": "opf:eidos-video:proof:north-star", "to": "opf:eidos-video:evidence:fold-20260822"},
+    {"id": "opf:eidos-video:rel:proof-fold-live", "type": "supported-by", "from": "opf:eidos-video:proof:north-star", "to": "opf:eidos-video:evidence:fold-live"},
     {"id": "opf:eidos-video:rel:proof-look3", "type": "supported-by", "from": "opf:eidos-video:proof:north-star", "to": "opf:eidos-video:evidence:look-0003"},
-    {"id": "opf:eidos-video:rel:gap-blocks-maker", "type": "blocks", "from": "opf:eidos-video:gap:maker-onramp", "to": "opf:eidos-video:outcome:maker-can-try"},
-    {"id": "opf:eidos-video:rel:gap-blocks-hook", "type": "blocks", "from": "opf:eidos-video:gap:hook-reveal", "to": "opf:eidos-video:outcome:hook-then-reveal"}
+    {"id": "opf:eidos-video:rel:gap-blocks-maker", "type": "blocks", "from": "opf:eidos-video:gap:maker-onramp", "to": "opf:eidos-video:outcome:maker-can-try"}
   ],
   "events": [
     {"id": "opf:eidos-video:event:product-created", "type": "created", "at": "2026-08-22T19:20:00Z", "subjects": ["opf:eidos-video:product"], "detail": "Created product"},
@@ -337,6 +346,9 @@
     {"id": "opf:eidos-video:event:gap-hook-created", "type": "created", "at": "2026-08-22T23:55:02Z", "subjects": ["opf:eidos-video:gap:hook-reveal"], "detail": "Created hook-reveal gap"},
     {"id": "opf:eidos-video:event:ev-fold-created", "type": "created", "at": "2026-08-22T23:55:03Z", "subjects": ["opf:eidos-video:evidence:fold-20260822"], "detail": "Created first-viewport fold evidence"},
     {"id": "opf:eidos-video:event:score-hook-reveal", "type": "observed", "at": "2026-08-22T23:55:00Z", "subjects": ["opf:eidos-video:proof:north-star"], "detail": "Retired 78. New bands: hook 16/30, reveal 14/30, truth 17/20, maker 17/20, total 64/100. Both gates fail."},
+    {"id": "opf:eidos-video:event:ev-fold-live-created", "type": "created", "at": "2026-08-22T21:59:00Z", "subjects": ["opf:eidos-video:evidence:fold-live"], "detail": "Created live 100% film fold evidence"},
+    {"id": "opf:eidos-video:event:score-fold-fix", "type": "observed", "at": "2026-08-22T22:00:00Z", "subjects": ["opf:eidos-video:proof:north-star"], "detail": "Rescored 83/100 after film-first fold. Hook 28/30, reveal 21/30, both gates pass."},
+    {"id": "opf:eidos-video:event:out-hook-updated", "type": "updated", "at": "2026-08-22T22:00:02Z", "subjects": ["opf:eidos-video:outcome:hook-then-reveal"], "detail": "Fold is the ident. Outcome active. Remaining stall is six plot stills."},
     {"id": "opf:eidos-video:event:ev-look3-created", "type": "created", "at": "2026-08-22T23:55:04Z", "subjects": ["opf:eidos-video:evidence:look-0003"], "detail": "Created LOOK-0003 evidence"}
   ]
 }

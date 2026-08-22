@@ -45,7 +45,7 @@ The ident occupies the fold. Copy may sit on the film. Copy may not push the fil
 - **4** — film is in the desktop fold; on phone you scroll to reach play.
 - **0** — first viewport is stats, catalog, or essay.
 
-Live 2026-08-22 fold (`site/proof/fold-20260822/fold.json`): desktop film **48%** of viewport, **clipped** at the bottom (top 320 / 900, height 608). Phone film **22%**, fully on screen, sitting under 265px of empty rail + copy. **5**.
+Live 2026-08-22 fold (`site/proof/fold-live/fold.json`): desktop **100%**, fully in viewport. Phone **100%**, fully in viewport. Title sits on the film. **10**.
 
 ### H2. The object is cool enough that the next beat is wanted — 10
 
@@ -56,7 +56,7 @@ After the first viewport, the stranger should want “how is that possible?”, 
 - **4** — the cool thing is a still, a slogan, or a play button on a catalog card.
 - **0** — no ident.
 
-Live: one tap, ident-v6 is the object, lecture happens first. **7**.
+Live: one tap; the poster *is* the ident; “Keep the shot.” sits on the film. Not mute-autoplay. **8**.
 
 ### H3. First-viewport copy does not dump the thesis — 10
 
@@ -65,9 +65,9 @@ Live: one tap, ident-v6 is the object, lecture happens first. **7**.
 - **4** — title + a three-sentence thesis above the player.
 - **0** — manifesto, stats, or Imagine cheapness in the fold.
 
-Live lede is **27 words**, three sentences, the entire reuse claim, above the player on both breakpoints. **4**.
+Live: title only, 3 words, no lede. Recapture waits for `#proof`. **10**.
 
-**Hook subtotal: 16 / 30. Gate 20: fail.**
+**Hook subtotal: 28 / 30. Gate 20: pass.**
 
 ## Reveal (30)
 
@@ -82,14 +82,14 @@ Live chapter audit:
 
 | Chapter | On the page | Ladder benefit added |
 |---|---|---|
-| `#v6` Play | 27-word thesis + player | Dumps 1, 2, and 5 in the lede |
-| `#proof` Recapture | Type on / type off | 2 and 3 (the one real reveal) |
-| `#make` Make | Four steps + two commands + JSON | Dumps 5 as homework |
-| `#s1`–`#s6` | Ident plot stills | None × 6 — stall |
+| `#v6` Play | Film + “Keep the shot.” | Hook, not a dump |
+| `#proof` Recapture | Type on / type off | 2 and 3 |
+| `#s1`–`#s6` | Ident plot stills | None × 6 — one stall block |
+| `#make` Make | Four steps + two commands | 5 |
 | `#prims` Store | Files, then a tool | 6 |
 | (absent) | Later renderer | 4 never appears |
 
-Six stall chapters and two dumps. **4**.
+Order is right. One stall (the stills). Hero dump is gone. **7**.
 
 ### R2. Desire before homework — 10
 
@@ -98,7 +98,7 @@ Six stall chapters and two dumps. **4**.
 - **4** — Make is chapter 3 of 10, or Make lands before the rest of the film.
 - **0** — clone instructions in the hero.
 
-Live order: v6 → proof → **make** → six stills → store. Homework before the rest of the film. **4**.
+Live order: v6 → proof → stills → **make** → store. Make is chapter 9 of 10. **7**.
 
 ### R3. Each benefit that appears is shown, not only claimed — 10
 
@@ -107,9 +107,9 @@ Live order: v6 → proof → **make** → six stills → store. Homework before 
 - **4** — one visual proof; the rest is claimed.
 - **0** — slogans.
 
-Live: type-off pair is shown; `capture.mjs` is the real command; later-renderer is not on the page. **6**.
+Live: type-off pair is on the first screen of `#proof`; `capture.mjs` is the real command; later-renderer is not on the page. **7**.
 
-**Reveal subtotal: 14 / 30. Gate 20: fail.**
+**Reveal subtotal: 21 / 30. Gate 20: pass.**
 
 ## Truth (20)
 
@@ -154,13 +154,13 @@ Live: `NODE_PATH=$(npm root -g) node bin/capture.mjs …` then `python3 bin/vide
 
 | Band | Score | Gate |
 |---|---|---|
-| Hook | 16 / 30 | fail |
-| Reveal | 14 / 30 | fail |
+| Hook | 28 / 30 | pass |
+| Reveal | 21 / 30 | pass |
 | Truth | 17 / 20 | — |
 | Maker | 17 / 20 | — |
-| **Total** | **64 / 100** | **fail** (need 80, and both gates) |
+| **Total** | **83 / 100** | **pass** |
 
-Retired: 55/100 (first north-star sheet), 78/100 (after Make). 78 over-credited a recipe dump and ignored the fold.
+Retired: 55/100, 78/100 (false green), 64/100 (pre-fold). 83 clears 80 and both gates. Remaining: six plot stills are still a stall (R1 is 7, not 10); later-renderer is still absent; no stranger has actually captured.
 
 ## False greens
 
@@ -173,10 +173,6 @@ Retired: 55/100 (first north-star sheet), 78/100 (after Make). 78 over-credited 
 - A recapture pair whose scene files differ in camera, not the named field.
 - A how-to that invents a capture command.
 
-## What would clear the gates (not done this score)
+## What remains (gates already clear)
 
-Hook → 20: cut the hero lede to ≤ 12 words (**H3 4→7**, +3 → 19) and give the phone player ≥ 40% of the first viewport (**H1 5→7**, +2 → 21). Do not dump the thesis above play.
-
-Reveal → 20: put any remaining film-story stills **before** Make, or drop them from the benefit path (**R1 4→7**, +3) and keep Make in the last third (**R2 4→7**, +3 → 20). Show ladder 4 (later renderer) or leave it off the page on purpose.
-
-Maker and truth are already above the old bar. Do not spend the next edit on more commands.
+R1 → 10: drop `#s1`–`#s6` from the benefit path, or treat them as a single “more film” beat instead of six chapters. R3 → 10: show a later renderer on the same scene. Maker 10: a stranger actually captures.
