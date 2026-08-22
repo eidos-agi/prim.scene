@@ -1,0 +1,15 @@
+{
+  "title": "Keep the shot",
+  "duration": 104.46,
+  "audio": "audio/track-1.m4a",
+  "boards": [
+    {"t": 0.0, "end": 12.0, "scene": 1, "title": "A generate you cannot keep.", "lede": "Unique paint. One clip. You cannot land it twice.", "src": "stills/01-oneshot.jpg"},
+    {"t": 12.0, "end": 19.0, "scene": 2, "title": "Prompt again.", "lede": "Luck is the camera. No steering.", "src": "stills/02-luck.jpg"},
+    {"t": 19.0, "end": 26.0, "scene": 2, "title": "Not the same shot.", "lede": "Same ask. Different picture.", "src": "stills/02-luck-b.jpg"},
+    {"t": 26.0, "end": 48.0, "scene": 3, "title": "The shot lives in a file.", "lede": "Camera, objects, duration. Recapture is a render of that file.", "src": "stills/03-file.jpg"},
+    {"t": 48.0, "end": 60.0, "scene": 4, "title": "Change one field.", "lede": "Type on. Same camera. Same objects.", "src": "stills/04-on.jpg"},
+    {"t": 60.0, "end": 72.0, "scene": 4, "title": "Capture again.", "lede": "Type off. Electricity, not inference.", "src": "stills/04-off.jpg"},
+    {"t": 72.0, "end": 88.5, "scene": 5, "title": "A later renderer.", "lede": "Same scene. No new generate.", "src": "stills/05-later.jpg"},
+    {"t": 88.5, "end": 104.46, "scene": 6, "title": "Keep the shot.", "lede": "The three hold. The file is still there.", "src": "stills/06-keep.jpg"}
+  ]
+}

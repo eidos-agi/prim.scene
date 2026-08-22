@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Keep the shot — storyboard</title>
+  <style>
+    :root {
+      --bg: #161210;
+      --ink: #dcd5cb;
+      --ink-mid: #b5aaa0;
+      --ink-soft: #8b8179;
+      --accent: #c4935a;
+      --line: #332c26;
+      --sans: "Space Grotesk", -apple-system, "Segoe UI", sans-serif;
+      --mono: ui-monospace, "SF Mono", Menlo, monospace;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.4 var(--sans); }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 1.1rem 1rem 2rem; }
+    .bar { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.85rem; }
+    .bar b { letter-spacing: -0.03em; }
+    .bar span { font: 700 0.68rem/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+    .stage { position: relative; background: #000; border-radius: 10px; overflow: hidden; aspect-ratio: 16/9; }
+    .stage img { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
+    .caption { margin-top: 1rem; min-height: 5.2rem; }
+    .kicker { margin: 0 0 0.35rem; font: 700 0.68rem/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+    h1 { margin: 0 0 0.35rem; font: 700 clamp(1.5rem, 4vw, 2.3rem)/1.08 var(--sans); letter-spacing: -0.04em; }
+    .lede { margin: 0; color: var(--ink-mid); max-width: 38rem; }
+    .rail { margin-top: 1.1rem; display: flex; align-items: center; gap: 0.85rem; }
+    button.go {
+      width: 52px; height: 52px; border: 0; border-radius: 50%;
+      background: var(--accent); color: #1e1a17; cursor: pointer; font-size: 0;
+      flex-shrink: 0;
+    }
+    button.go::before {
+      content: ""; display: block; margin: 0 auto;
+      width: 0; height: 0;
+      border-style: solid; border-width: 9px 0 9px 16px;
+      border-color: transparent transparent transparent #1e1a17;
+      margin-left: 4px;
+    }
+    button.go.on::before {
+      width: 12px; height: 14px; border: 0; background:
+        linear-gradient(#1e1a17,#1e1a17) 0 0/4px 100% no-repeat,
+        linear-gradient(#1e1a17,#1e1a17) 8px 0/4px 100% no-repeat;
+      margin-left: 0;
+    }
+    .time { font: 700 0.72rem/1 var(--mono); color: var(--ink-soft); letter-spacing: 0.04em; min-width: 7.5rem; }
+    .barline { flex: 1; height: 4px; background: var(--line); border-radius: 99px; overflow: hidden; cursor: pointer; }
+    .barline > i { display: block; height: 100%; width: 0; background: var(--accent); }
+    .beats { display: flex; gap: 0.35rem; margin-top: 0.7rem; flex-wrap: wrap; }
+    .beats button {
+      border: 1px solid var(--line); background: transparent; color: var(--ink-soft);
+      font: 700 0.62rem/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.4rem 0.5rem; border-radius: 3px; cursor: pointer;
+    }
+    .beats button.on { color: var(--accent); border-color: var(--accent); }
+    p.hint { margin: 1.2rem 0 0; color: var(--ink-soft); font-size: 0.88rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="bar">
+      <b>Keep the shot</b>
+      <span>Storyboard · full song · 1:44</span>
+    </div>
+    <div class="stage"><img id="frame" alt=""></div>
+    <div class="caption">
+      <p class="kicker" id="kicker"></p>
+      <h1 id="title"></h1>
+      <p class="lede" id="lede"></p>
+    </div>
+    <div class="rail">
+      <button class="go" id="go" type="button" aria-label="Play"></button>
+      <span class="time" id="clock">0:00 / 1:44</span>
+      <div class="barline" id="seek"><i id="fill"></i></div>
+    </div>
+    <div class="beats" id="beats"></div>
+    <p class="hint">Space plays. This is boards on the song — not a 3D capture.</p>
+  </div>
+  <audio id="bed" src="audio/track-1.m4a" preload="auto"></audio>
+  <script>
+    fetch("boards.json").then(function (r) { return r.json(); }).then(boot);
+    function fmt(t) {
+      t = Math.max(0, Math.min(t, 104.46));
+      var m = Math.floor(t / 60), s = Math.floor(t % 60);
+      return m + ":" + String(s).padStart(2, "0");
+    }
+    function boot(data) {
+      var boards = data.boards;
+      var bed = document.getElementById("bed");
+      var frame = document.getElementById("frame");
+      var title = document.getElementById("title");
+      var lede = document.getElementById("lede");
+      var kicker = document.getElementById("kicker");
+      var clock = document.getElementById("clock");
+      var fill = document.getElementById("fill");
+      var go = document.getElementById("go");
+      var beats = document.getElementById("beats");
+      var cur = -1;
+      boards.forEach(function (b, i) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = (i + 1) + " · " + b.title.replace(/\.$/, "");
+        btn.addEventListener("click", function () { bed.currentTime = b.t + 0.05; if (bed.paused) bed.play(); });
+        beats.appendChild(btn);
+      });
+      function show(t) {
+        var b = boards[0];
+        var idx = 0;
+        for (var i = 0; i < boards.length; i++) {
+          if (t >= boards[i].t && t < boards[i].end) { b = boards[i]; idx = i; }
+        }
+        if (t >= boards[boards.length - 1].end) { b = boards[boards.length - 1]; idx = boards.length - 1; }
+        if (idx !== cur) {
+          cur = idx;
+          frame.src = b.src;
+          title.textContent = b.title;
+          lede.textContent = b.lede;
+          kicker.textContent = "Beat " + b.scene + " · " + fmt(b.t) + "–" + fmt(b.end);
+          Array.prototype.forEach.call(beats.children, function (el, i) {
+            el.classList.toggle("on", i === idx);
+          });
+        }
+        clock.textContent = fmt(t) + " / 1:44";
+        fill.style.width = (100 * t / 104.46) + "%";
+      }
+      show(0);
+      bed.addEventListener("timeupdate", function () { show(bed.currentTime); });
+      bed.addEventListener("play", function () { go.classList.add("on"); });
+      bed.addEventListener("pause", function () { go.classList.remove("on"); });
+      go.addEventListener("click", function () { if (bed.paused) bed.play(); else bed.pause(); });
+      document.getElementById("seek").addEventListener("click", function (e) {
+        var r = e.currentTarget.getBoundingClientRect();
+        bed.currentTime = ((e.clientX - r.left) / r.width) * 104.46;
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.code === "Space") { e.preventDefault(); if (bed.paused) bed.play(); else bed.pause(); }
+      });
+    }
+  </script>
+</body>
+</html>
